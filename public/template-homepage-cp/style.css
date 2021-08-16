@@ -1,0 +1,499 @@
+/* Navbar */
+.navbar{
+	background-color: #2b221f;
+}
+.navv{
+	color:rgb(204, 179, 95);
+}
+.jumbotron .texta{
+	position: relative;
+	z-index: 1;
+}
+.navbar-brand{
+	font-family: viga;
+}
+
+
+
+/* Jumbotron */
+.jumbotron{
+	background-image: url(img/bg.jpg);
+	background-size: cover;
+	background-position-x: -280px;
+	height: 640px ;
+	text-align: center;
+	position: relative;
+}
+
+.jumbotron::after{
+	content: '';
+	display:block;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to top, rgba(0,0,0,0.7),rgba(0,0,0,0));
+	position: absolute; 
+	bottom:0;
+}
+
+.jumbotron .text1{
+	color: white;
+	font-size: 13px;
+	text-shadow: 3px 3px 3px rgba( 0,0,0,0.7)
+
+}
+
+.jumbotron .text2{
+	color: white;
+	font-size: 11px;
+	margin-top: 30px;
+	text-shadow: 2px 2px 2px rgba( 0,0,0,0.7)
+}
+
+.jumbotron .text2 span{
+	font-weight: 400;
+}
+
+.jumbotron .my-4{
+	border-color: #b68973;
+	width: 70px;
+	border-width: 3px;
+}
+
+.jumbotron .text3{
+	margin-top: 130px;
+	font-size: 10px;
+	color:white;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+.jumbotron .text3 span{
+	margin-top: 50px;
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.tomb_up{
+	text-align: center;
+}
+.tombol_up{
+	border-radius: 40px;
+	background-color: #b68973;;
+	border: none;
+	font-size: 25px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 30px;
+	padding-left: 30px ;
+	margin-top: -30px;
+	
+}
+/* Utility */
+.tombol{
+	border-radius: 5px;
+	background-color: #b68973;
+	font-family: Secular One;
+	margin-top: 10px;
+	border :none;
+	font-size: 15px;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	text-transform: uppercase;
+}
+
+.tombol2{
+	border-radius: 40px;
+	background-color: #b68973;
+	font-family: Secular One;
+	margin-top: 10px;
+	border :none;
+	font-size: 15px;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 7px;
+	padding-right: 20px;
+	padding-left: 20px;
+	text-transform: uppercase;
+}
+
+
+.tomb{
+	text-align: center;
+}
+.logo{
+	text-align: center;
+	margin-top: 50px;
+
+}
+
+/* Working Space */
+.workingspace{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.workingspace .display-4{
+	margin-top: 20px;
+}
+.workingspace .gariscoklat{
+	border-color: #b68973;
+	width: 70px;
+	border-width: 3px;
+}
+.jambuka{
+	margin-top: -28px;
+	text-align: center;
+	font-size: 12px;
+	
+}
+.carousel-inner{
+	border-radius: 15px;
+}
+.map2{
+	text-align: center;
+	font-size: 35px;
+	text-transform: uppercase;
+}
+.map3{
+	border-radius: 15px;
+}
+.fas{
+	text-align: center;
+}
+.alamat{
+	text-align: center;
+}
+.open{
+	font-size: 20px;
+	margin-bottom: -10px;
+}
+.x{
+	
+	font-size: 15px;
+}
+.opentext{
+	font-family: raleway;
+	font-size:12px ;
+}
+.opentext span{
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size:12px ;
+}
+
+/* Jumbotron Menu */
+.jumbotronmenu{
+	background-image: url(img/bgmenu.jpg);
+	background-size: cover;
+	background-position-x: -700px;
+	height: 750px;
+	margin-top: -15px;
+}
+
+.bgmenufix{
+	margin-top: 200px;
+	text-align: center;
+}
+.bgmenu{
+	font-family: Anton;
+}
+.bgmenu2{
+	font-size: 20px;
+	font-weight: 200;
+}
+
+
+.tomb2{
+	text-align: center;
+	margin-bottom: 30px;
+}
+/* Reservation Mobile */
+.jumbotronres{
+	background-image: url(img/bgres.jpg);
+	background-size: cover;
+	background-position-x: -520px;
+	height: 750px;
+	margin-top: -15px;
+}
+
+.bgresfix{
+	margin-top: 200px;
+	text-align: center;
+}
+.bgres{
+	font-family: Anton;
+}
+.bgres2{
+	font-size: 20px;
+	font-weight: 200;
+	font-family: Shippori Mincho B1;
+}
+/* Akhir Reservation Mobile */
+
+.footer{
+	background-image: url(img/footer.jpg);
+	background-size: cover;
+	height: 220px;
+	background-position-x: -650px;
+	position: relative;
+}
+.footer::after{
+	content: '';
+	display:block;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0.3));
+	position: absolute; 
+	bottom:0;
+}
+.footer .textb{
+	position: relative;
+	z-index: 1;
+}
+
+.fw{
+	border-color: #ffffff;
+	width: 85px;
+	border-width: 1px;
+	margin-left: 0px;
+}
+.xxx{
+	color: white;
+	margin-top: 0px;
+	text-align: center;
+	font-size: 10px;
+}
+.f1{
+	font-size: 17px;
+}
+/*DESKTOP VERSION--------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width: 992px) {
+	.jumbotron{
+		background-image: url(img/bg.jpg);
+		background-size: cover;
+		background-position-x: 0px;
+		height: 725px;
+		text-align: center;
+		position: relative;
+		margin-top:0px ;
+	}
+ 	.navbar .nav-link{
+	
+	text-transform: uppercase;
+	font-family: viga;
+	;
+	}
+
+
+
+	.logo{
+		text-align: center;
+		margin-top: 20px;
+	
+	}
+	
+
+	.navbar .nav-link:hover::after{
+		content:'';
+		display: block;
+		border-bottom: 3px solid #b68973;
+		width: 50%;
+		margin: auto;
+		margin-bottom: -5px;
+	}
+
+
+
+	.jumbotron .text1{
+		font-size: 20px
+	}
+
+	.jumbotron .text2{
+		font-size: 20px;
+		padding-left: 100px;
+		padding-right: 100px;
+
+
+	}
+
+	.tombol{
+		font-size: 15px;
+		font-weight: 400;
+		padding-right: 20px;
+		padding-left: 20px;
+		padding-top: 10px;
+		padding-bottom: 8px;
+	}
+	.tomb{
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.jumbotron .text3{
+		margin-top: 150px;
+		color:white;
+		font-family: Raleway:wght@100;
+		font-weight:200;
+		text-transform: uppercase;
+		font-size:15px;
+		text-shadow: 2px 2px 2px rgba( 0,0,0,0.7)
+	}
+	
+	.jumbotron .text3 span{
+		margin-top: 140px;
+		font-family: Raleway:wght@500;
+		font-weight: 500;
+		text-transform: uppercase;
+		font-size:15px;
+		text-shadow: 2px 2px 2px rgba( 0,0,0,0.7)
+	}
+	.garisdoang{
+		padding-bottom: -30px;
+	}
+	.opentext{
+		font-family: raleway;
+		font-size:15px ;
+	}
+	.opentext span{
+		font-family: sans-serif;
+		font-weight: 500;
+		font-size:15px ;
+	}
+	.open{
+		margin-bottom: -7px;
+		font-size: 30px;
+		margin-top: 60px;
+	}
+
+	.jambuka{
+		margin-top: -35px;
+		text-align: center;
+		font-size: 16px;
+	}
+	.map2{
+		text-align: left;
+		font-size: 45px;
+		margin-top: 25%;
+		text-transform: uppercase;
+	}
+	.fas{
+		text-align: center;
+	}
+	.alamat{
+		font-size: 15px;
+		text-align: left;
+		text-transform: uppercase;
+	}
+
+	.map .awe{
+		border-color: #b68973;
+		width: 510px;
+		border-width: 2px;
+		margin-left: 0px;
+	}
+
+	.tomb2{
+		text-transform: uppercase;
+		font-family: anton;
+		text-align: left;
+		
+	}
+	.bgmenufix{
+		margin-left: 600px;
+		margin-top: 200px;
+		text-align: justify;
+	}
+	.bgmenu{
+		font-family: Anton;
+	}
+	.bgmenu2{
+		font-size: 20px;
+		font-weight: 200;
+		font-family: Shippori Mincho B1;
+	}
+	.jumbotronmenu{
+		background-image: url(img/bgmenu.jpg);
+		background-size: cover;
+		background-position-x: 0px;
+		height: 750px;
+		margin-top: -15px;
+	}
+	/*Reservation  */
+	.bgresfix{
+		margin-top: 200px;
+		text-align: center;
+	}
+	.bgres{
+		font-family: Anton;
+	}
+	.bgres2{
+		font-size: 20px;
+		font-weight: 200;
+		
+	}
+	.jumbotronres{
+		background-image: url(img/bgres.jpg);
+		background-size: cover;
+		background-position-x: 0px;
+		height: 750px;
+		margin-top: -15px;
+	}
+	/* Akhir Reservation */
+	.footer{
+		background-image: url(img/footer.jpg);
+		background-size: cover;
+		height: 220px;
+		background-position-x: 0px;
+		position: relative;
+	}
+	.footertext{
+		margin-left: 700px;
+		font-size: 15px;
+		text-align: left;
+	}
+	
+	.footer::after{
+		content: '';
+		display:block;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0.3));
+		position: absolute; 
+		bottom:0;
+	}
+	.footer .textb{
+		position: relative;
+		z-index: 1;
+	}
+	.f1{
+		font-size: 20px;
+	}
+	.fw{
+		border-color: #ffffff;
+		width: 85px;
+		border-width: 1px;
+		margin-left: 0px;
+	}
+
+	}
+	.fy{
+		border-color: #b68973;
+		
+		width: 900px;
+		text-align: center;
+		border-width: 1px;
+	}
+	.xxx{
+		color: white;
+		margin-top: 45px;
+		text-align: center;
+		font-size: 10px;
+	}
+	
+}
+/*AKHIR DESKTOP VERSION-------------------------------*/
+

@@ -1,0 +1,162 @@
+.jum{
+    background-image: url(img/bg4.jpg);
+    size: cover;
+    height: 250px;
+    margin-top: 20px;
+
+    
+}
+
+.jum2{
+    margin-top: 60px;
+    text-align: center;
+}
+.about{
+    font-family: viga;
+    font-size: 30px;
+    font-weight: 500;
+    
+    color: white;
+    margin-top: 60px;
+    
+}
+
+.about2{
+    color: #b68973;
+    font-family: viga;
+    font-size: 20px;
+    font-weight: 700;
+}
+.about2 span{
+    color: white;
+    font-family: viga;
+    font-size: 20px;
+} 
+
+.about3{
+    margin-top: 65px;
+    color:white;
+    font-family: Raleway:wght@100;
+    font-weight:200;
+    text-transform: uppercase;
+    font-size:15px;
+    text-shadow: 2px 2px 2px rgba( 0,0,0,0.7);
+    text-align: center;
+}
+
+.about3 span{
+    
+    font-family: Raleway:wght@500;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:15px;
+    text-shadow: 2px 2px 2px rgba( 0,0,0,0.7)
+}
+.aboutus2{
+    text-align: justify;
+    font-family: Shippori Mincho B1;
+}
+.parallax{
+    background: url("img/bgall.jpg") repeat fixed 100% ;
+    background-size: cover;
+}
+/* Contact */
+.contact_top{
+    text-align: center;
+    font-family: raleway;
+    font-size: 18px;
+
+}
+.contact_top .my-4{
+    border-color: #b68973;
+    width: 100px;
+    border-width: 3px;
+}
+
+.contact2{
+    text-align: center;
+}
+
+
+/*DESKTOP VERSION--------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width: 992px) {
+    .jum2{
+        margin-top: 30px;
+    }
+    .about{
+        font-family: viga;
+        font-size: 60px;
+        font-weight: 500;
+        text-align: left;
+        color: white;
+        margin-top: 60px;
+        margin-left: 80px;
+        
+    }
+    
+    .about2{
+        margin-left: 80px;
+        color: #b68973;
+        font-family: viga;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+    }
+    .about2 span{
+        color: white;
+        font-family: viga;
+        font-size: 20px;
+    } 
+    
+    .about3{
+        margin-top: 20px;
+        color:white;
+        font-family: Raleway:wght@100;
+        font-weight:200;
+        text-transform: uppercase;
+        font-size:15px;
+        text-shadow: 2px 2px 2px rgba( 0,0,0,0.7);
+        text-align: center;
+    }
+    
+    .about3 span{
+        
+        font-family: Raleway:wght@500;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size:15px;
+        text-shadow: 2px 2px 2px rgba( 0,0,0,0.7)
+    }
+    .aboutus{
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .aboutus2{
+        text-align: justify;
+        margin-left: 6%;
+		margin-right: 6%;
+        font-size: 24px;
+        
+    }
+
+    /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+    .contact_top{
+        text-align: center;
+        font-family: raleway;
+        font-size: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .contact_top .my-4{
+        border-color: #b68973;
+        width: 200px;
+        border-width: 3px;
+    }
+
+    .contact2{
+        text-align: left;
+    }
+    
+}
+
