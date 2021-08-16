@@ -6,6 +6,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/reservation', [ReservationController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
