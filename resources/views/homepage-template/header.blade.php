@@ -17,3 +17,4 @@
 
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('template-homepage-cp') }}/style.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('template-homepage-cp') }}/style2.css">

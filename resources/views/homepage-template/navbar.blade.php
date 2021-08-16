@@ -6,12 +6,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only ">(current)</span></a>
-          <a class="nav-item nav-link" href="aboutus.php">About Us</a>
-          <a class="nav-item nav-link" href="menu.php">Menu</a>
-          <a class="nav-item nav-link" href="gallery.php">Gallery</a>
-          <a class="nav-item nav-link" href="reservation.php">Reservation</a>
-          <a class="nav-item nav-link" href="contactus.php">Contact Us</a>
+          <a class="nav-item nav-link {{ request()-> is('/') ? 'active' : '' }}" href="/">Home</a>
+          <a class="nav-item nav-link {{ request()-> is('about') ? 'active' : '' }}" href="/about">About Us</a>
+          <a class="nav-item nav-link {{ request()-> is('menu') ? 'active' : '' }}" href="/menu">Menu</a>
+          <a class="nav-item nav-link {{ request()-> is('gallery') ? 'active' : '' }}" href="/gallery">Gallery</a>
+          <a class="nav-item nav-link {{ request()-> is('reservation') ? 'active' : '' }}" href="/reservation">Reservation</a>
+          <a class="nav-item nav-link {{ request()-> is('contact') ? 'active' : '' }}" href="/contact">Contact Us</a>
         </div>
       </div>  
     </div>
