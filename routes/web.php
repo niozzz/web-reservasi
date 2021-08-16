@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\GalleryController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/reservation', [ReservationController::class, 'index']);

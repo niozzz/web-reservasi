@@ -3,6 +3,10 @@
 <html lang="en">
   <head>
     @include('homepage-template.header')
+
+    {{-- gallery css --}}
+    <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet">
+    <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet">
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
  </head>
