@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminAboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/reservation', [ReservationController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/administrator', [AdminController::class, 'index']);
+Route::get('/administrator', [AdminController::class, 'index'])->name('Dashboard');
+Route::get('/administrator/about', [AdminAboutController::class, 'index'])->name('About');

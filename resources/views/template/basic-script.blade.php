@@ -10,22 +10,16 @@
 <!--stickey kit -->
 <script src="{{ asset('template-dashboard') }}/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
 
-    <!-- Amchart -->
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/serial.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/export.min.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/light.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/ammap.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/worldLow.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/pie.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/amstock.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/chart-amchart/amchart-init.js"></script>
 
-
-<script src="{{ asset('template-dashboard') }}/js/lib/weather/jquery.simpleWeather.min.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/weather/weather-init.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/owl-carousel/owl.carousel.min.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/lib/owl-carousel/owl.carousel-init.js"></script>
-<script src="{{ asset('template-dashboard') }}/js/scripts.js"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('template-dashboard') }}/js/custom.min.js"></script>
+
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/datatables.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+<script src="{{ asset('template-dashboard') }}/js/lib/datatables/datatables-init.js"></script>

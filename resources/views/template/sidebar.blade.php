@@ -7,7 +7,7 @@
                 <li class="nav-devider"></li>
                 <li class="nav-label">Home</li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator" aria-expanded="false">
                         <i class="fa fa-tachometer"></i>
                         <span class="hide-menu">Dashboard
                             
@@ -16,8 +16,9 @@
                    
                 </li>
                 <li class="nav-devider"></li>
+                <li class="nav-label">Option</li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator/menu" aria-expanded="false">
                         <i class="fa fa-coffee"></i>
                         <span class="hide-menu">Menu
                             
@@ -25,7 +26,7 @@
                     </a>
                    
                 </li><li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator/gallery" aria-expanded="false">
                         <i class="fa fa-image"></i>
                         <span class="hide-menu">Gallery
                             
@@ -33,7 +34,7 @@
                     </a>
                    
                 </li><li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator/reservation" aria-expanded="false">
                         <i class="fa fa-calendar-check-o"></i>
                         <span class="hide-menu">Reservation
                             
@@ -41,7 +42,7 @@
                     </a>
                    
                 </li><li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator/about" aria-expanded="false">
                         <i class="fa fa-info"></i>
                         <span class="hide-menu">About Us
                             
@@ -49,7 +50,7 @@
                     </a>
                    
                 </li><li>
-                    <a href="#" aria-expanded="false">
+                    <a href="/administrator/inbox" aria-expanded="false">
                         <i class="fa fa-inbox"></i>
                         <span class="hide-menu">Inbox
                             
