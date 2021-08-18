@@ -100,7 +100,7 @@
     </div>
 </div>
 {{-- flash data --}}
-<div class="flash-data" data-flashdata="{{ session('pesan') }}">{{ session('pesan') }}</div>
+<div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
 <!-- End PAge Content -->
 
 

@@ -40,6 +40,7 @@ class AdminAboutController extends Controller
             $data = [
                 'judul_abt' => Request()->judul_about,
                 'isi_abt' => Request()->isi_about,
+                'gbr_abt' => 'gambar-kosong.png',
             ];
 
             $this->AboutUsModel->tambahData($data);
