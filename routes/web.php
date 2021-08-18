@@ -31,3 +31,4 @@ Route::get('/administrator', [AdminController::class, 'index'])->name('Dashboard
 Route::get('/administrator/about', [AdminAboutController::class, 'index'])->name('About');
 Route::get('/administrator/about/tambah', [AdminAboutController::class, 'tambah']);
 Route::post('/administrator/about/insert', [AdminAboutController::class, 'insert']);
+Route::get('/administrator/about/hapus/{id}', [AdminAboutController::class, 'delete']);

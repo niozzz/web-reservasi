@@ -18,6 +18,13 @@ class AboutUsModel extends Model
         return DB::table('tb_aboutus')->get();
     }
 
+    public function getDataById($id)
+    {
+        return DB::table('tb_aboutus')
+            ->where('id_abt', $id)
+            ->first();
+    }
+
     public function hapusData($id)
     {
         DB::table('tb_aboutus')

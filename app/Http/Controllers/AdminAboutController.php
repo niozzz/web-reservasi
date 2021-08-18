@@ -57,8 +57,19 @@ class AdminAboutController extends Controller
 
             $this->AboutUsModel->tambahData($data);
         }
-        return redirect()->route('About')->with('pesan', 'Data berhasil diupdate!');
+        return redirect()->route('About')->with('pesan', 'berhasil ditambahkan');
+    }
 
+    public function delete($id)
+    {
 
+        $konten = $this->AboutUsModel -> getDataById($id);
+
+        if ($konten->gbr_abt <> "") {
+            unlink(public_path('template-homepage-cp/gambar/aboutus/' . $konten->gbr_abt));
+        }
+
+        $this->AboutUsModel->hapusData($id);
+        return redirect()->route('About')->with('pesan', 'berhasil dihapus');
     }
 }
