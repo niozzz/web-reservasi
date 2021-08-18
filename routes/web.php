@@ -29,3 +29,4 @@ Route::get('/reservation', [ReservationController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/administrator', [AdminController::class, 'index'])->name('Dashboard');
 Route::get('/administrator/about', [AdminAboutController::class, 'index'])->name('About');
+Route::get('/administrator/about/tambah', [AdminAboutController::class, 'tambah']);
