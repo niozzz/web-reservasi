@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Favicon icon -->
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template-dashboard') }}/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template-homepage-cp') }}/img/dish1.png">
 <!-- Custom CSS -->
 
 <link href="{{ asset('template-dashboard') }}/css/lib/amchart/export.css" rel="stylesheet">
