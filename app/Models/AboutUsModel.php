@@ -31,4 +31,11 @@ class AboutUsModel extends Model
             ->where('id_abt', $id)
             ->delete();
     }
+
+    public function ubahData($id, $data)
+    {
+        DB::table('tb_aboutus')
+            ->where('id_abt', $id)
+            ->update($data);
+    }
 }

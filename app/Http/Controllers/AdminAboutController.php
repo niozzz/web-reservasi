@@ -90,4 +90,43 @@ class AdminAboutController extends Controller
 
         return view('about/ubah', $data);
     }
+
+    public function update($id)
+    {
+        $konten = $this->AboutUsModel->getDataById($id);
+
+        Request()->validate([
+            'judul_about' => 'required',
+            'isi_about' => 'required',
+        ]);
+
+        if (!Request()->gambar_about) {
+            $data = [
+                'judul_abt' => Request()->judul_about,
+                'isi_abt' => Request()->isi_about,
+            ];
+
+            $this->AboutUsModel->ubahData($id, $data);
+        } else {
+
+            // delete gambar
+            if ($konten->gbr_abt <> "") {
+                unlink(public_path('template-homepage-cp/gambar/aboutus/' . $konten->gbr_abt));
+            }
+
+            // upload gambar
+            $file = Request()->gambar_about;
+            $fileName = date('His-dmY') . '.' . $file->extension();
+            $file->move(public_path('template-homepage-cp/gambar/aboutus'), $fileName);
+
+            $data = [
+                'judul_abt' => Request()->judul_about,
+                'isi_abt' => Request()->isi_about,
+                'gbr_abt' => $fileName,
+            ];
+
+            $this->AboutUsModel->ubahData($id, $data);
+        }
+        return redirect()->route('About')->with('pesan', 'berhasil diubah');
+    }
 }

@@ -129,7 +129,7 @@
 const flashData = $('.flash-data').data('flashdata');
 console.log(flashData);
 
-if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus")
+if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || flashData == "berhasil diubah")
 {
     // Swal.fire({
     //     icon: 'success',

@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
                 <div class="basic-elements">
-                    <form action="/administrator/about/insert" method="POST" enctype="multipart/form-data">
+                    <form action="/administrator/about/update/{{ $dataKonten->id_abt }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
@@ -48,7 +48,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-flat m-b-10 m-l-5">Tambah</button>
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-10 m-l-5">Ubah</button>
                                     <a href="/administrator/about" class="btn btn-danger btn-flat m-b-10 m-l-5">Batal</a>
                                 </div>
                             
