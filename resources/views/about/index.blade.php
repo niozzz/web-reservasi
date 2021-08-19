@@ -80,7 +80,22 @@
                                 @endphp
                                 {{ $newString }}
                                 </td>
-                                <td class="text-center" width="20%"><img src="{{ url('template-homepage-cp/gambar/aboutus/'. $data->gbr_abt ) }}" alt="" style="max-width: 150px"></td>
+                                <td class="text-center" width="20%">
+                                    <?php
+                                        if ((empty($data->gbr_abt) || ($data->gbr_abt == '')))
+                                        {
+                                    ?>
+                                            Gambar tidak tersedia
+                                    <?php
+                                        }else
+                                        {
+                                    ?>
+                                            <img src="{{ url('template-homepage-cp/gambar/aboutus/'. $data->gbr_abt ) }}" alt="" style="max-width: 150px"></td>
+                                    <?php
+                                        }
+                                    ?>
+                                   
+                                    
                                 <td class="text-center">
                                     <button type="button" class="btn btn-primary btn-sm m-b-10 m-l-5 tombol-detail">Detail</button>
                                     <button type="button" class="btn btn-warning btn-sm m-b-10 m-l-5">Ubah</button>
