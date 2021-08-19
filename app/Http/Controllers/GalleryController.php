@@ -8,6 +8,6 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        return view('gallery');
+        return view('gallery2');
     }
 }

@@ -3,38 +3,36 @@
     <head>
         <link href="{{ asset('template-dashboard') }}/css/style.css" rel="stylesheet">
         @include('homepage-template.header')
-        {{-- <link href="{{ asset('template-dashboard') }}/css/lib/amchart/export.css" rel="stylesheet">
-        <link href="{{ asset('template-dashboard') }}/css/lib/owl.carousel.min.css" rel="stylesheet" />
-        <link href="{{ asset('template-dashboard') }}/css/lib/owl.theme.default.min.css" rel="stylesheet" /> --}}
-        {{-- @include('template.header') --}}
-        <!-- Title -->
-        <title>Fotokopi De Tjolomadoe-Home</title>
-    </head>
-
+    
+        {{-- gallery css --}}
+        <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet">
+        <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet">
+    <!-- Title -->
+    <title>Fotokopi De Tjolomadoe-Home</title>
+     </head>
+    
     <!-- Body -->
-    <body>
-        <section class="parallax">
+    
+    <section class="parallax">
+    <body class="home">
+        
+    <!-- Navbar -->
+     @include('homepage-template.navbar')
+    <!-- Akhir Navbar -->
+    
+    
+    <!-- Jumbotron2 -->
+    <div class="jumbotron2 jum jumbotron-fluid">
+      <div class="container jum2">
+        <br>
+        <div class="about">About FotoKopi De Tjolomadoe
+        </div>
+        <div class="about2">Home <span>> About Us</span>
+        </div>
+        <p class="lead about3">Mari <span >duduk </span>dan kita <span class=>bicarakan</span></p>
+      </div>
+    </div>
 
-            <!-- Navbar -->
-            @include('homepage-template.navbar');
-            <!-- Akhir Navbar -->
-
-            <!-- Jumbotron2 -->
-            <div class="jumbotron2 jum jumbotron-fluid">
-                <div class="container jum2">
-                    <br>
-                    <div class="about">About FotoKopi De Tjolomadoe
-                    </div>
-                    <div class="about2">Home
-                        <span>> About Us</span>
-                    </div>
-                    <p class="lead about3">Mari
-                        <span >duduk
-                        </span>dan kita
-                        <span class>bicarakan</span></p>
-                </div>
-            </div>
-            <!-- Akhir Jumbotron2 -->
             <br>
 
             <!--Isi About Us-->
@@ -130,51 +128,13 @@
 
     
     <!-- FOOTER -->
-    <div class="footer-cp">
-        <div class="container textb">
-            <br>
-            <div class="footertext text-white">
-                <div class="follow ">
-                    <a
-                        href="https://www.instagram.com/fotokopi.detjolomadoe/"
-                        class="fab fa-instagram text-white"></a>
-                    <a
-                        href="https://www.instagram.com/fotokopi.detjolomadoe/"
-                        class="ig text-white">
-                        ON INSTAGRAM</a>
-                </div>
-                <div class="garisfooter">
-                    <hr class="my-4 fw">
-                </div>
-                <h1 class="f1">FOLLOW US</h1>
-                <p class="f2">Like, share, or follow for more info!</p>
-
-            </div>
-
-            <p class="xxx">
-                ©2021 Fotokopi De Tjolomadoe. All Right Reserved.
-            </p>
-        </div>
-
-    </div>
+    @include('homepage-template.footer')
 
     <!-- Akhir FOOTER -->
 
 </section>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    {{-- @include('template.basic-script') --}}
+@include('homepage-template.basic-script')
 </body>
 </html>

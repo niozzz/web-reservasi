@@ -7,6 +7,7 @@
     {{-- gallery css --}}
     <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet">
     <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
  </head>
@@ -107,33 +108,15 @@
 <!-- Akhir Galeri -->
 
 <!-- FOOTER -->
-<br><br>
-<div class="footer-cp">
-  <div class="container textb">
-    
-    <div class="footertext text-white">
-      <div class="follow ">
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="fab fa-instagram text-white" ></a>
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="ig text-white"> ON INSTAGRAM</a>
-      </div>
-      <div class="garisfooter">
-        <hr class="my-4 fw">
-      </div>
-        <h1 class="f1">FOLLOW US</h1>
-        <p class="f2">Like, share, or follow for more info!</p>
-        
-    </div>
-    
-    <p class="xxx"> ©2021 Fotokopi De Tjolomadoe. All Right Reserved. </p>
-  </div>
-
-</div>
+@include('homepage-template.footer')
 
 <!-- Akhir FOOTER -->
+</section>
 
 
 
-
+    {{-- basic script --}}
+    @include('homepage-template.basic-script')
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script type="text/javascript">
