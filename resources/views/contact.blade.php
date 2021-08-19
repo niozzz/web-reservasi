@@ -104,7 +104,7 @@
 
 <br><br><br><br><br>
 <!-- FOOTER -->
-<div class="footer">
+<div class="footer-cp">
   <div class="container textb">
     <br>
     <div class="footertext text-white">

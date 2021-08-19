@@ -234,14 +234,14 @@
 }
 /* Akhir Reservation Mobile */
 
-.footer{
+.footer-cp{
 	background-image: url(img/footer.jpg);
 	background-size: cover;
 	height: 220px;
 	background-position-x: -650px;
 	position: relative;
 }
-.footer::after{
+.footer-cp::after{
 	content: '';
 	display:block;
 	width: 100%;
@@ -250,7 +250,7 @@
 	position: absolute; 
 	bottom:0;
 }
-.footer .textb{
+.footer-cp .textb{
 	position: relative;
 	z-index: 1;
 }
@@ -443,7 +443,7 @@
 		margin-top: -15px;
 	}
 	/* Akhir Reservation */
-	.footer{
+	.footer-cp{
 		background-image: url(img/footer.jpg);
 		background-size: cover;
 		height: 220px;
@@ -456,7 +456,7 @@
 		text-align: left;
 	}
 	
-	.footer::after{
+	.footer-cp::after{
 		content: '';
 		display:block;
 		width: 100%;
@@ -465,7 +465,7 @@
 		position: absolute; 
 		bottom:0;
 	}
-	.footer .textb{
+	.footer-cp .textb{
 		position: relative;
 		z-index: 1;
 	}

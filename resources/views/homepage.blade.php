@@ -162,30 +162,30 @@
 
 
 <!-- FOOTER -->
-<div class="footer">
-  <div class="container textb">
-    <div class="tomb_up">
-      <a class="btn btn-secondary tombol_up " href="#home" role="button">
-        <i href="#home" class="fas fa-chevron-up page-scroll"></i>
-      </a>
-    </div>
-    <div class="footertext text-white">
-      <div class="follow ">
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="fab fa-instagram text-white" ></a>
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="ig text-white"> ON INSTAGRAM</a>
+<div class="footer-cp">
+    <div class="container textb">
+      <div class="tomb_up">
+        <a class="btn btn-secondary tombol_up " href="#home" role="button">
+          <i href="#home" class="fas fa-chevron-up page-scroll"></i>
+        </a>
       </div>
-      <div class="garisfooter">
-        <hr class="my-4 fw">
+      <div class="footertext text-white">
+        <div class="follow ">
+          <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="fab fa-instagram text-white" ></a>
+          <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="ig text-white"> ON INSTAGRAM</a>
+        </div>
+        <div class="garisfooter">
+          <hr class="my-4 fw">
+        </div>
+          <h1 class="f1">FOLLOW US</h1>
+          <p class="f2">Like, share, or follow for more info!</p>
+          
       </div>
-        <h1 class="f1">FOLLOW US</h1>
-        <p class="f2">Like, share, or follow for more info!</p>
-        
+      
+      <p class="xxx"> ©2021 Fotokopi De Tjolomadoe. All Right Reserved. </p>
     </div>
-    
-    <p class="xxx"> ©2021 Fotokopi De Tjolomadoe. All Right Reserved. </p>
+  
   </div>
-
-</div>
 
 <!-- Akhir FOOTER -->
 
