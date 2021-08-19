@@ -81,4 +81,13 @@ class AdminAboutController extends Controller
         $this->AboutUsModel->hapusData($id);
         return redirect()->route('About')->with('pesan', 'berhasil dihapus');
     }
+
+    public function ubah($id)
+    {
+        $data = [
+            'dataKonten' => $this->AboutUsModel->getDataById($id)
+        ];
+
+        return view('about/ubah', $data);
+    }
 }

@@ -98,7 +98,7 @@
                                     
                                 <td class="text-center">
                                     <a href="about/detail/{{ $data->id_abt }}" class="btn btn-primary btn-sm m-b-10 m-l-5 ">Detail</a>
-                                    <button type="button" class="btn btn-warning btn-sm m-b-10 m-l-5">Ubah</button>
+                                    <a href="about/ubah/{{ $data->id_abt }}" class="btn btn-warning btn-sm m-b-10 m-l-5">Ubah</a>
                                     <a href="about/hapus/{{ $data->id_abt }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                     {{-- <div class="sweetalert m-t-15">
                                         <button class="btn btn-warning btn sweet-confirm">Sweet Confirm</button>
