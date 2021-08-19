@@ -97,7 +97,7 @@
                                    
                                     
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-primary btn-sm m-b-10 m-l-5 tombol-detail">Detail</button>
+                                    <a href="about/detail/{{ $data->id_abt }}" class="btn btn-primary btn-sm m-b-10 m-l-5 ">Detail</a>
                                     <button type="button" class="btn btn-warning btn-sm m-b-10 m-l-5">Ubah</button>
                                     <a href="about/hapus/{{ $data->id_abt }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                     {{-- <div class="sweetalert m-t-15">
@@ -146,9 +146,7 @@ if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus")
 }
 
 
-$('.tombol-detail').on('click', function(e){
-    Swal.fire('Any fool can use a computer');
-});
+
 
 $('.tombol-hapus').on('click', function(e){
 

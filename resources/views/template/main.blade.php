@@ -96,7 +96,7 @@
                 <!-- End Container fluid  -->
             </div>
             <!-- footer -->
-            <footer class="footer"> © 2018 CoinDash All Right Reserved.</footer>
+            <footer class="footer"> ©2021 Fotokopi De Tjolomadoe. All Right Reserved.</footer>
             <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->

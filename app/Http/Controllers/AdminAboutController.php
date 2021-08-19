@@ -24,6 +24,14 @@ class AdminAboutController extends Controller
         return view('about/index', $data);
     }
 
+    public function detail($id)
+    {
+        $data = [
+            'dataKonten' => $this->AboutUsModel->getDataById($id)
+        ];
+        return view('about/detail', $data);
+    }
+
     public function tambah()
     {
         return view('about/tambah');
