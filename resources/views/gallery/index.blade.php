@@ -34,7 +34,7 @@
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>Keterangan</th>
-                                <th>Gambar</th>
+                                <th>Foto</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
