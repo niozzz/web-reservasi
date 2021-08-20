@@ -65,8 +65,8 @@ class AdminGalleryController extends Controller
 
         $konten = $this->GalleryModel -> getDataById($id);
 
-        if ($konten->gbr_abt <> "") {
-            unlink(public_path('template-homepage-cp/gambar/gallery/' . $konten->gbr_abt));
+        if ($konten->gbr_gal <> "") {
+            unlink(public_path('template-homepage-cp/gambar/gallery/' . $konten->gbr_gal));
         }
 
         $this->GalleryModel->hapusData($id);
