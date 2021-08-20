@@ -107,7 +107,6 @@
 <!-- Akhir Galeri -->
 
 <!-- FOOTER -->
-<br><br>
 <div class="footer-cp">
   <div class="container textb">
     

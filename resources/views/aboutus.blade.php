@@ -25,7 +25,7 @@
     <div class="jumbotron2 jum jumbotron-fluid">
       <div class="container jum2">
         <br>
-        <div class="about">About FotoKopi De Tjolomadoe
+        <div class="about">FotoKopi De Tjolomadoe
         </div>
         <div class="about2">Home <span>> About Us</span>
         </div>
