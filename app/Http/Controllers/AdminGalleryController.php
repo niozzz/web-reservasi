@@ -87,22 +87,20 @@ class AdminGalleryController extends Controller
         $konten = $this->GalleryModel->getDataById($id);
 
         Request()->validate([
-            'judul_gallery' => 'required',
-            'isi_gallery' => 'required',
+            'album_gallery' => 'required',
         ]);
 
         if (!Request()->gambar_gallery) {
             $data = [
-                'judul_abt' => Request()->judul_gallery,
-                'isi_abt' => Request()->isi_gallery,
+                'album_gal' => Request()->album_gallery,
             ];
 
             $this->GalleryModel->ubahData($id, $data);
         } else {
 
             // delete gambar
-            if ($konten->gbr_abt <> "") {
-                unlink(public_path('template-homepage-cp/gambar/gallery/' . $konten->gbr_abt));
+            if ($konten->gbr_gal <> "") {
+                unlink(public_path('template-homepage-cp/gambar/gallery/' . $konten->gbr_gal));
             }
 
             // upload gambar
@@ -111,9 +109,8 @@ class AdminGalleryController extends Controller
             $file->move(public_path('template-homepage-cp/gambar/gallery'), $fileName);
 
             $data = [
-                'judul_abt' => Request()->judul_gallery,
-                'isi_abt' => Request()->isi_gallery,
-                'gbr_abt' => $fileName,
+                'album_gal' => Request()->album_gallery,
+                'gbr_gal' => $fileName,
             ];
 
             $this->GalleryModel->ubahData($id, $data);
