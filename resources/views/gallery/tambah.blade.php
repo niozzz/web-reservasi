@@ -38,6 +38,11 @@
                                 <div class="form-group">
                                     <label for="gambar_gallery">Gambar</label>
                                     <input type="file" id="gambar_gallery" name="gambar_gallery" class="form-control">
+                                    @error('gambar_gallery') 
+                                    <label class="text-danger ">
+                                        {{$message}}
+                                    </label>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">

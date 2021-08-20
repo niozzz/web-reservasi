@@ -40,32 +40,23 @@ class AdminGalleryController extends Controller
     public function insert()
     {
         Request()->validate([
-            'judul_gallery' => 'required',
-            'isi_gallery' => 'required',
+            'album_gallery' => 'required',
+            'gambar_gallery' => 'required',
         ]);
 
-        if (!Request()->gambar_gallery) {
-            $data = [
-                'judul_abt' => Request()->judul_gallery,
-                'isi_abt' => Request()->isi_gallery,
-                'gbr_abt' => '',
-            ];
+        
+        // upload gambar
+        $file = Request()->gambar_gallery;
+        $fileName = date('His-dmY') . '.' . $file->extension();
+        $file->move(public_path('template-homepage-cp/gambar/gallery'), $fileName);
 
-            $this->GalleryModel->tambahData($data);
-        } else {
-            // upload gambar
-            $file = Request()->gambar_gallery;
-            $fileName = date('His-dmY') . '.' . $file->extension();
-            $file->move(public_path('template-homepage-cp/gambar/gallery'), $fileName);
+        $data = [
+            'album_gal' => Request()->album_gallery,
+            'gbr_gal' => $fileName,
+        ];
 
-            $data = [
-                'judul_abt' => Request()->judul_gallery,
-                'isi_abt' => Request()->isi_gallery,
-                'gbr_abt' => $fileName,
-            ];
-
-            $this->GalleryModel->tambahData($data);
-        }
+        $this->GalleryModel->tambahData($data);
+        
         return redirect()->route('Gallery')->with('pesan', 'berhasil ditambahkan');
     }
 
