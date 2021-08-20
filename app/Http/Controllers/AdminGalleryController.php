@@ -29,44 +29,44 @@ class AdminGalleryController extends Controller
         $data = [
             'dataKonten' => $this->GalleryModel->getDataById($id)
         ];
-        return view('about/detail', $data);
+        return view('gallery/detail', $data);
     }
 
     public function tambah()
     {
-        return view('about/tambah');
+        return view('gallery/tambah');
     }
 
     public function insert()
     {
         Request()->validate([
-            'judul_about' => 'required',
-            'isi_about' => 'required',
+            'judul_gallery' => 'required',
+            'isi_gallery' => 'required',
         ]);
 
-        if (!Request()->gambar_about) {
+        if (!Request()->gambar_gallery) {
             $data = [
-                'judul_abt' => Request()->judul_about,
-                'isi_abt' => Request()->isi_about,
+                'judul_abt' => Request()->judul_gallery,
+                'isi_abt' => Request()->isi_gallery,
                 'gbr_abt' => '',
             ];
 
             $this->GalleryModel->tambahData($data);
         } else {
             // upload gambar
-            $file = Request()->gambar_about;
+            $file = Request()->gambar_gallery;
             $fileName = date('His-dmY') . '.' . $file->extension();
             $file->move(public_path('template-homepage-cp/gambar/gallery'), $fileName);
 
             $data = [
-                'judul_abt' => Request()->judul_about,
-                'isi_abt' => Request()->isi_about,
+                'judul_abt' => Request()->judul_gallery,
+                'isi_abt' => Request()->isi_gallery,
                 'gbr_abt' => $fileName,
             ];
 
             $this->GalleryModel->tambahData($data);
         }
-        return redirect()->route('About')->with('pesan', 'berhasil ditambahkan');
+        return redirect()->route('Gallery')->with('pesan', 'berhasil ditambahkan');
     }
 
     public function delete($id)
@@ -79,7 +79,7 @@ class AdminGalleryController extends Controller
         }
 
         $this->GalleryModel->hapusData($id);
-        return redirect()->route('About')->with('pesan', 'berhasil dihapus');
+        return redirect()->route('Gallery')->with('pesan', 'berhasil dihapus');
     }
 
     public function ubah($id)
@@ -88,7 +88,7 @@ class AdminGalleryController extends Controller
             'dataKonten' => $this->GalleryModel->getDataById($id)
         ];
 
-        return view('about/ubah', $data);
+        return view('gallery/ubah', $data);
     }
 
     public function update($id)
@@ -96,14 +96,14 @@ class AdminGalleryController extends Controller
         $konten = $this->GalleryModel->getDataById($id);
 
         Request()->validate([
-            'judul_about' => 'required',
-            'isi_about' => 'required',
+            'judul_gallery' => 'required',
+            'isi_gallery' => 'required',
         ]);
 
-        if (!Request()->gambar_about) {
+        if (!Request()->gambar_gallery) {
             $data = [
-                'judul_abt' => Request()->judul_about,
-                'isi_abt' => Request()->isi_about,
+                'judul_abt' => Request()->judul_gallery,
+                'isi_abt' => Request()->isi_gallery,
             ];
 
             $this->GalleryModel->ubahData($id, $data);
@@ -115,18 +115,18 @@ class AdminGalleryController extends Controller
             }
 
             // upload gambar
-            $file = Request()->gambar_about;
+            $file = Request()->gambar_gallery;
             $fileName = date('His-dmY') . '.' . $file->extension();
             $file->move(public_path('template-homepage-cp/gambar/gallery'), $fileName);
 
             $data = [
-                'judul_abt' => Request()->judul_about,
-                'isi_abt' => Request()->isi_about,
+                'judul_abt' => Request()->judul_gallery,
+                'isi_abt' => Request()->isi_gallery,
                 'gbr_abt' => $fileName,
             ];
 
             $this->GalleryModel->ubahData($id, $data);
         }
-        return redirect()->route('About')->with('pesan', 'berhasil diubah');
+        return redirect()->route('Gallery')->with('pesan', 'berhasil diubah');
     }
 }
