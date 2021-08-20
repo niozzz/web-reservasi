@@ -7,6 +7,7 @@
     {{-- gallery css --}}
     <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet">
     <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
  </head>
@@ -39,67 +40,21 @@
 
     <div class="demo-gallery">
         <ul id="lightgallery" class="list-unstyled row">
+
             <!-- mulai looping -->
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158456.jpg" data-sub-html="<h4>Ada sudut ruang kami yang jadi andalan ketika datang beramai ramai. </h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158456.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158443.jpg" data-sub-html="<h4>Jangan lupa untuk rindu pada kopi seduhan kami, ya! Karena kenangan di penjuru kami sangatlah membekas</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158443.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158436.jpg" data-sub-html="<h4>Hari dan kemarin masih sama; hujan yang datang tak kian pergi di kala sore saat kita semua bertemu</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158436.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158339.jpg" data-sub-html="<h4>Ambience</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624158339.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624157340.jpg" data-sub-html="<h4>Our Coffee</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624157340.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624157291.jpg" data-sub-html="<h4>Our Coffee</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624157291.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126050.jpg" data-sub-html="<h4>Our place</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126050.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126035.jpg" data-sub-html="<h4>Ambience</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126035.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126022.jpg" data-sub-html="<h4>Ambience</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624126022.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125975.jpg" data-sub-html="<h4>Duduk bersama berbincang dan berdiskusi tentang rasa dan pikiran di depan kedai @fotokopi.detjolomadoe</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125975.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125953.jpg" data-sub-html="<h4>Our Coffee</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125953.jpg" class="img-responsive">
-                    </a>
-                </li>
-                            <li class="col-md-3" data-src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125844.jpg" data-sub-html="<h4>Duduk bersama berbincang dan berdiskusi tentang rasa dan pikiran di depan kedai @fotokopi.detjolomadoe</h4>">
-                    <a href="">
-                        <img src="{{ asset('template-homepage-cp/gambar') }}/gallery/gal-1624125844.jpg" class="img-responsive">
-                    </a>
-                </li>
+            @foreach ($allData as $data)
+                
+            <li
+            class="col-md-3"
+            data-src="{{ asset('template-homepage-cp/gambar/gallery/'. $data->gbr_gal) }}"
+            data-sub-html="<h4>{{ $data->album_gal }}</h4>">
+            <a href="">
+                <img
+                    src="{{ asset('template-homepage-cp/gambar/gallery/'. $data->gbr_gal) }}"
+                    class="img-responsive"></a>
+            </li>
+                            
+            @endforeach
             
         </ul>
     </div>
@@ -132,7 +87,7 @@
 
 
 
-
+    {{-- @include('homepage-template.basic-script') --}}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script type="text/javascript">
