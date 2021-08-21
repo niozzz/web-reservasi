@@ -14,6 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Brygada+1918&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('template-homepage-cp') }}/style.css">

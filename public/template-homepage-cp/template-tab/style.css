@@ -1,0 +1,107 @@
+/**
+ * Tabs
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;700&display=swap');
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs label {
+  order: 1;
+  display: block;
+  padding: 10px 20px 10px 20px;
+  margin-right: 0.2rem;
+  cursor: pointer;
+
+  background: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: Secular One;
+  margin-bottom: 5px;
+  color: #b68973;
+  border: 1px solid #b68973;
+
+  /* font-weight: bold; */
+  font-size: 15px;
+  font-weight: 400;
+  transition: background ease 0.2s;
+}
+
+.tabs label:hover {
+  background: #b68973;
+  color: white;
+}
+
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #b68973;
+  border-radius: 5px;
+}
+
+.tabs input[type=radio] {
+  display: none;
+}
+
+.tabs input[type=radio]:checked + label {
+  background: #b68973;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: Secular One;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.tabs input[type=radio]:checked + label + .tab {
+  display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+.tabs label {
+    order: initial;
+  }
+
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+.tabs h1 {
+  font-family: viga;
+}
+.tabs .style-tabs1 {
+  font-family: viga;
+}
+.tabs .style-tabs2 {
+  font-family: 'Courgette', cursive;
+  color: #b68973;
+}
+.tabs .style-tabs3 {
+  font-family: 'Alumni Sans', sans-serif;
+  font-weight: 800;
+}
+/**
+ * Generic Styling
+*/
+body {
+  /* background: #eee;
+  min-height: 100vh;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 112%; */
+  /* padding-top: 10vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 60rem; */
+}
