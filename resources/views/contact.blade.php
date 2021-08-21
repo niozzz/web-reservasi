@@ -103,7 +103,8 @@
 </div>
 <!-- Akhir Isi Contact Us -->
 
-<br><br><br><br><br>
+{{-- flash data --}}
+<div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
 <!-- FOOTER -->
 @include('homepage-template.footer')
 
@@ -122,5 +123,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+
+{{-- sweet alert 2 --}}
+<script src="{{ asset('template-dashboard') }}/js/sweetalert2/sweetalert2.all.min.js"></script>
+<script>
+
+const flashData = $('.flash-data').data('flashdata');
+console.log(flashData);
+
+if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || flashData == "berhasil diubah")
+{
+    // Swal.fire({
+    //     icon: 'success',
+    //     title: 'Berhasil!',
+    //     text: 'Data' . flashData
+    // })
+
+        Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: 'Data ' + flashData
+        })
+
+}
+
+
+
+
+$('.tombol-hapus').on('click', function(e){
+
+    e.preventDefault();
+    const simpanLink = $(this).attr('href');
+    // const hapusLink = $(this).removeAttr('href');
+
+    Swal.fire({
+    title: 'Apakah Anda yakin?',
+    text: "Data yang dihapus akan hilang permanen",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Hapus!',
+    cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.value) {
+
+            document.location.href = simpanLink;
+
+            
+        }
+    });
+});
+
+
+
+</script>
+
   </body>
 </html>
