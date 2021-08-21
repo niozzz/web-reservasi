@@ -28,7 +28,8 @@ Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/reservation', [ReservationController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index'])->name('Contact');
+Route::post('/contact/insert', [ContactController::class, 'insert']);
 
 Route::get('/administrator', [AdminController::class, 'index'])->name('Dashboard');
 

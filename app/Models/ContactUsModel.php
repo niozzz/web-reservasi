@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class ContactUsModel extends Model
 {
+    public function tambahData($data)
+    {
+        DB::table('tb_contactus')->insert($data);
+    }
+
     public function getAllData()
     {
         return DB::table('tb_contactus')->get();
