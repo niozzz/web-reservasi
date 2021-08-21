@@ -53,3 +53,4 @@ Route::get('/administrator/gallery/ubah/{id}', [AdminGalleryController::class, '
 
 // admin contact
 Route::get('/administrator/inbox', [AdminContactController::class, 'index'])->name('Inbox');
+Route::get('/administrator/inbox/hapus/{id}', [AdminContactController::class, 'delete']);

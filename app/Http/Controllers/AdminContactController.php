@@ -24,24 +24,12 @@ class AdminContactController extends Controller
         return view('contact/index', $data);
     }
 
-    public function insert()
+    public function delete($id)
     {
-        Request()->validate([
-            'nama_contact' => 'required',
-            'email_contact' => 'required',
-            'subject_contact' => 'required',
-            'pesan_contact' => 'required',
-        ]);
 
-        $data = [
-            'nama_contact' => Request()->nama_contact,
-            'email_contact' => Request()->email_contact,
-            'subject_contact' => Request()->subject_contact,
-            'pesan_contact' => Request()->pesan_contact,
-            'tanggal_contact' => Request()->tanggal_contact,
-        ];
-
-        $this->ContactUsModel->tambahData($data);
-        return redirect()->route('Contact')->with('pesan', 'berhasil ditambahkan');
+        $this->ContactUsModel->hapusData($id);
+        return redirect()->route('Inbox')->with('pesan', 'berhasil dihapus');
     }
+
+    
 }

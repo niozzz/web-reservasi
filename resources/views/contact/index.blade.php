@@ -53,7 +53,7 @@
                                 <td>{{ $data->pesan_contact }}</td>
                                 <td>{{ $data->tanggal_contact }}</td>
                                 <td>
-                                    <a href="inbox/hapus/{{ $data->id_contact }}" class="btn btn-sm btn-danger">Hapus</a>
+                                    <a href="inbox/hapus/{{ $data->id_contact }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                 </td>
                             </tr>
                             

@@ -21,14 +21,14 @@ class ContactUsModel extends Model
     public function getDataById($id)
     {
         return DB::table('tb_contactus')
-            ->where('id_abt', $id)
+            ->where('id_contact', $id)
             ->first();
     }
 
     public function hapusData($id)
     {
         DB::table('tb_contactus')
-            ->where('id_abt', $id)
+            ->where('id_contact', $id)
             ->delete();
     }
 }
