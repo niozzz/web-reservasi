@@ -9,6 +9,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAboutController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminGalleryController;
 
 /*
@@ -48,3 +49,6 @@ Route::post('/administrator/gallery/update/{id}', [AdminGalleryController::class
 Route::get('/administrator/gallery/hapus/{id}', [AdminGalleryController::class, 'delete']);
 Route::get('/administrator/gallery/detail/{id}', [AdminGalleryController::class, 'detail']);
 Route::get('/administrator/gallery/ubah/{id}', [AdminGalleryController::class, 'ubah']);
+
+// admin contact
+Route::get('/administrator/inbox', [AdminContactController::class, 'index'])->name('Inbox');
