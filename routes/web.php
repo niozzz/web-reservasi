@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\AdminMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,11 @@ Route::get('/administrator/gallery/ubah/{id}', [AdminGalleryController::class, '
 // admin contact
 Route::get('/administrator/inbox', [AdminContactController::class, 'index'])->name('Inbox');
 Route::get('/administrator/inbox/hapus/{id}', [AdminContactController::class, 'delete']);
+
+// admin menu
+Route::get('/administrator/menu', [AdminMenuController::class, 'index'])->name('Menu');
+Route::get('/administrator/menu/tambah', [AdminMenuController::class, 'tambah']);
+Route::post('/administrator/menu/insert', [AdminMenuController::class, 'insert']);
+Route::post('/administrator/menu/update/{id}', [AdminMenuController::class, 'update']);
+Route::get('/administrator/menu/hapus/{id}', [AdminMenuController::class, 'delete']);
+Route::get('/administrator/menu/ubah/{id}', [AdminMenuController::class, 'ubah']);
