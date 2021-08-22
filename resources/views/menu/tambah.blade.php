@@ -72,6 +72,11 @@
                                 <div class="form-group">
                                     <label for="gambar_menu">Gambar</label>
                                     <input type="file" id="gambar_menu" name="gambar_menu" class="form-control">
+                                    @error('harga_menu') 
+                                    <label class="text-danger ">
+                                        {{$message}}
+                                    </label>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
