@@ -32,42 +32,48 @@ class AdminMenuController extends Controller
     //     return view('menu/detail', $data);
     // }
 
-    // public function tambah()
-    // {
-    //     return view('menu/tambah');
-    // }
+    public function tambah()
+    {
+        return view('menu/tambah');
+    }
 
-    // public function insert()
-    // {
-    //     Request()->validate([
-    //         'judul_menu' => 'required',
-    //         'isi_menu' => 'required',
-    //     ]);
+    public function insert()
+    {
+        Request()->validate([
+            'nama_menu' => 'required',
+            'jenis_menu' => 'required',
+            'kategori_menu' => 'required',
+            'harga_menu' => 'required',
+            'gambar_menu' => 'required',
+        ]);
 
-    //     if (!Request()->gambar_menu) {
-    //         $data = [
-    //             'judul_abt' => Request()->judul_menu,
-    //             'isi_abt' => Request()->isi_menu,
-    //             'gbr_abt' => '',
-    //         ];
+        // if (!Request()->gambar_menu) {
+        //     $data = [
+        //         'judul_abt' => Request()->judul_menu,
+        //         'isi_abt' => Request()->isi_menu,
+        //         'gbr_abt' => '',
+        //     ];
 
-    //         $this->MenuModel->tambahData($data);
-    //     } else {
-    //         // upload gambar
-    //         $file = Request()->gambar_menu;
-    //         $fileName = date('His-dmY') . '.' . $file->extension();
-    //         $file->move(public_path('template-homepage-cp/gambar/menuus'), $fileName);
+        //     $this->MenuModel->tambahData($data);
+        // } else {
 
-    //         $data = [
-    //             'judul_abt' => Request()->judul_menu,
-    //             'isi_abt' => Request()->isi_menu,
-    //             'gbr_abt' => $fileName,
-    //         ];
+        // upload gambar
+        $file = Request()->gambar_menu;
+        $fileName = date('His-dmY') . '.' . $file->extension();
+        $file->move(public_path('template-homepage-cp/gambar/menu'), $fileName);
 
-    //         $this->MenuModel->tambahData($data);
-    //     }
-    //     return redirect()->route('menu')->with('pesan', 'berhasil ditambahkan');
-    // }
+        $data = [
+            'nama_menu' => Request()-> nama_menu,
+            'jenis_menu' => Request()-> jenis_menu,
+            'kategori_menu' => Request()-> kategori_menu,
+            'harga_menu' => Request()-> harga_menu,
+            'gbr_menu' => $fileName
+        ];
+
+        $this->MenuModel->tambahData($data);
+        // }
+        return redirect()->route('Menu')->with('pesan', 'berhasil ditambahkan');
+    }
 
     // public function delete($id)
     // {

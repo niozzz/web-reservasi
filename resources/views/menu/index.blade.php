@@ -28,7 +28,7 @@
                         <a
                             class="dt-button buttons-copy buttons-html5"
                             tabindex="0"
-                            href="about/tambah">
+                            href="menu/tambah">
                             <span>Tambah Data</span>
                         </a>
                         
@@ -53,11 +53,11 @@
 
                             @foreach ($allData as $data)
                                 <tr>
-                                    <td>{{ $nomor++ }}</td>
-                                    <td>{{ $data->nama_menu }}</td>
-                                    <td>{{ $data->jenis_menu }}</td>
-                                    <td>{{ $data->kategori_menu }}</td>
-                                    <td>{{ $data->harga_menu }}</td>
+                                    <td class="text-center">{{ $nomor++ }}</td>
+                                    <td class="text-center">{{ $data->nama_menu }}</td>
+                                    <td class="text-center">{{ $data->jenis_menu }}</td>
+                                    <td class="text-center">{{ $data->kategori_menu }}</td>
+                                    <td class="text-center">{{ $data->harga_menu }}</td>
                                     <td class="text-center" width="20%">
                                         <img src="{{ url('template-homepage-cp/gambar/menu/'. $data->gbr_menu ) }}" alt="" style="max-width: 150px">
                                     </td>
