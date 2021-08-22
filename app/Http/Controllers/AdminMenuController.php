@@ -75,18 +75,18 @@ class AdminMenuController extends Controller
         return redirect()->route('Menu')->with('pesan', 'berhasil ditambahkan');
     }
 
-    // public function delete($id)
-    // {
+    public function delete($id)
+    {
 
-    //     $konten = $this->MenuModel -> getDataById($id);
+        $konten = $this->MenuModel -> getDataById($id);
 
-    //     if ($konten->gbr_abt <> "") {
-    //         unlink(public_path('template-homepage-cp/gambar/menuus/' . $konten->gbr_abt));
-    //     }
+        if ($konten->gbr_menu <> "") {
+            unlink(public_path('template-homepage-cp/gambar/menu/' . $konten->gbr_menu));
+        }
 
-    //     $this->MenuModel->hapusData($id);
-    //     return redirect()->route('menu')->with('pesan', 'berhasil dihapus');
-    // }
+        $this->MenuModel->hapusData($id);
+        return redirect()->route('Menu')->with('pesan', 'berhasil dihapus');
+    }
 
     // public function ubah($id)
     // {
