@@ -108,6 +108,7 @@
 
     @include('template.basic-script')
     @yield('basic-script')
+    @yield('new-script')
 
 </body>
 

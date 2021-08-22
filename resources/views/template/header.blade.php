@@ -12,3 +12,4 @@
 <link href="{{ asset('template-dashboard') }}/css/lib/owl.carousel.min.css" rel="stylesheet" />
 <link href="{{ asset('template-dashboard') }}/css/lib/owl.theme.default.min.css" rel="stylesheet" />
 <link href="{{ asset('template-dashboard') }}/css/style.css" rel="stylesheet">
+<link href="{{ asset('template-dashboard') }}/css/autocomplete.css" rel="stylesheet">

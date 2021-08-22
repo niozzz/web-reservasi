@@ -1,9 +1,27 @@
-
+@php
+    $allKategori = [];
+    foreach ($allData as $data) {
+      $allKategori[] = $data->kategori_menu;
+    }
+    $allKategori = array_unique($allKategori);
+    $allKategori = array_values($allKategori);
+    
+    // dd($allKategori);
+@endphp
 <!doctype html>
 <html lang="en">
   <head>
     @include('homepage-template.header')
     <link rel="stylesheet" href="{{ asset('template-homepage-cp/template-tab') }}/style.css">
+    <style>
+      .thumbnail-menu img {
+        
+        max-width: 70%;
+        max-height: 200px;
+        min-height: 200px;
+        object-fit: cover;
+      }
+    </style>
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
  </head>
@@ -36,21 +54,40 @@
     <h4 style="padding-top:2px; padding-bottom:2px;">Our Best Seller : &nbsp;</h4>
 
     {{-- looping 1 --}}
-    <input type="radio" name="tabs" id="tabone" checked="checked">
-    <label for="tabone">Tab One</label>
+    
+    @for ($i = 0; $i < count($allKategori); $i++)
+    @if ($i == 0)
+        
+    <input type="radio" name="tabs" id="tab{{ $i }}" checked="checked">
+    @else
+    <input type="radio" name="tabs" id="tab{{ $i }}">
+
+    @endif
+    <label for="tab{{ $i }}">{{ $allKategori[$i] }}</label>
     <div class="tab">
-      <div class="row">
+      <div class="row mt-2">
         {{-- Looping 2 --}}
-        <div class="col-md-4 text-center">
-          <img src="{{ asset('template-homepage-cp/gambar/aboutus/gambar-kosong.png') }}" alt="" class="img-thumbnail mb-2">
-          <p class="style-tabs1" style=" margin-bottom:0px;">Red Velvet</p>
-          <p class="style-tabs2" style=" margin-bottom:0px;">Favorite Flavour</p>
-          <h4 class="style-tabs3" style=" margin-bottom:0px;">Rp9000,-</h4>
-        </div>
+        @foreach ($allData as $data)
+          @if ($data->kategori_menu == $allKategori[$i])
+              
+          <div class="col-md-4 text-center thumbnail-menu">
+            <img src="{{ asset('template-homepage-cp/gambar/menu/'. $data->gbr_menu) }}" alt="" width="70%" class="img-thumbnail mb-2">
+            <p class="style-tabs1" style=" margin-bottom:0px;">{{ $data->nama_menu }}</p>
+            @if ($allKategori[$i] == 'coffee')
+                
+            <p class="style-tabs2" style=" margin-bottom:0px;">{{ $data->jenis_menu }}</p>
+            @endif
+            <h4 class="style-tabs3 mb-2" style=" margin-bottom:0px;">Rp{{ number_format($data->harga_menu) }},-</h4>
+          </div>
+          @endif
+        @endforeach
+
         {{-- End Looping 2 --}}
         
       </div>
     </div>
+    @endfor
+
     {{-- end looping 1 --}}
   </div>
 </div>

@@ -34,7 +34,13 @@ class AdminMenuController extends Controller
 
     public function tambah()
     {
-        return view('menu/tambah');
+        $allData = $this->MenuModel->getAllData();
+
+        $data = [
+            'allData' => $allData
+        ];
+
+        return view('menu/tambah', $data);
     }
 
     public function insert()

@@ -11,9 +11,9 @@
 <script src="{{ asset('template-dashboard') }}/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
 
 {{-- script sweet alert --}}
-<script src="{{ asset('template-dashboard') }}/js/lib/sweetalert/sweetalert.min.js"></script>
+{{-- <script src="{{ asset('template-dashboard') }}/js/lib/sweetalert/sweetalert.min.js"></script>
     <!-- scripit init-->
-    <script src="{{ asset('template-dashboard') }}/js/lib/sweetalert/sweetalert.init.js"></script>
+    <script src="{{ asset('template-dashboard') }}/js/lib/sweetalert/sweetalert.init.js"></script> --}}
 
 <!--Custom JavaScript -->
 <script src="{{ asset('template-dashboard') }}/js/custom.min.js"></script>
