@@ -72,7 +72,7 @@
               
           <div class="col-md-4 text-center thumbnail-menu">
             <img src="{{ asset('template-homepage-cp/gambar/menu/'. $data->gbr_menu) }}" alt="" width="70%" class="img-thumbnail mb-2">
-            <p class="style-tabs1" style=" margin-bottom:0px;">{{ $data->nama_menu }}</p>
+            <p class="style-tabs1" style=" margin-bottom:0px;">{{ ucwords($data->nama_menu) }}</p>
             @if ($allKategori[$i] == 'coffee')
                 
             <p class="style-tabs2" style=" margin-bottom:0px;">{{ $data->jenis_menu }}</p>

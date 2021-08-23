@@ -18,7 +18,7 @@
                                 
                                 <div class="form-group">
                                     <label for="nama_menu">Ubah Menu</label>
-                                    <input type="text" id="nama_menu" name="nama_menu" class="form-control" autofocus value="{{ $dataKonten->nama_menu }}">
+                                    <input type="text" id="nama_menu" name="nama_menu" class="form-control" autofocus value="{{ old('nama_menu', $dataKonten->nama_menu) }}">
                                     @error('nama_menu') 
                                     <label class="text-danger ">
                                         {{$message}}
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis_menu">Jenis Menu</label>
-                                    <input type="text" id="jenis_menu" name="jenis_menu" class="form-control" autofocus value="{{ $dataKonten->jenis_menu }}">
+                                    <input type="text" id="jenis_menu" name="jenis_menu" class="form-control" autofocus value="{{ old('jenis_menu', $dataKonten->jenis_menu) }}">
                                     @error('jenis_menu') 
                                     <label class="text-danger ">
                                         {{$message}}
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kategori_menu">Kategori Menu</label>
-                                    <input type="text" id="kategori_menu" name="kategori_menu" class="form-control" autofocus value="{{ $dataKonten->kategori_menu }}">
+                                    <input type="text" id="kategori_menu" name="kategori_menu" class="form-control" autofocus value="{{ old('kategori_menu', $dataKonten->kategori_menu) }}">
                                     @error('kategori_menu') 
                                     <label class="text-danger ">
                                         {{$message}}
@@ -49,7 +49,7 @@
                                 
                                 <div class="form-group">
                                     <label for="harga_menu">Harga Menu</label>
-                                    <input type="number" id="harga_menu" name="harga_menu" class="form-control" autofocus value="{{ $dataKonten->harga_menu }}">
+                                    <input type="number" id="harga_menu" name="harga_menu" class="form-control" autofocus value="{{ old('harga_menu', $dataKonten->harga_menu) }}">
                                     @error('harga_menu') 
                                     <label class="text-danger ">
                                         {{$message}}

@@ -45,23 +45,28 @@ class AdminMenuController extends Controller
 
     public function insert()
     {
-        Request()->validate([
-            'nama_menu' => 'required',
-            'jenis_menu' => 'required',
-            'kategori_menu' => 'required',
-            'harga_menu' => 'required',
-            'gambar_menu' => 'required',
-        ]);
+        $jenisMenu = '';
+        if (strtolower(Request()->kategori_menu) == 'coffee')
+        {
 
-        // if (!Request()->gambar_menu) {
-        //     $data = [
-        //         'judul_abt' => Request()->judul_menu,
-        //         'isi_abt' => Request()->isi_menu,
-        //         'gbr_abt' => '',
-        //     ];
-
-        //     $this->MenuModel->tambahData($data);
-        // } else {
+            Request()->validate([
+                'nama_menu' => 'required',
+                'jenis_menu' => 'required',
+                'kategori_menu' => 'required',
+                'harga_menu' => 'required',
+                'gambar_menu' => 'required',
+            ]);
+            
+            $jenisMenu = Request()->jenis_menu;
+        }else
+        {
+            Request()->validate([
+                'nama_menu' => 'required',
+                'kategori_menu' => 'required',
+                'harga_menu' => 'required',
+                'gambar_menu' => 'required',
+            ]);
+        }
 
         // upload gambar
         $file = Request()->gambar_menu;
@@ -70,8 +75,8 @@ class AdminMenuController extends Controller
 
         $data = [
             'nama_menu' => Request()-> nama_menu,
-            'jenis_menu' => Request()-> jenis_menu,
-            'kategori_menu' => Request()-> kategori_menu,
+            'jenis_menu' => strtolower($jenisMenu),
+            'kategori_menu' => strtolower(Request()-> kategori_menu),
             'harga_menu' => Request()-> harga_menu,
             'gbr_menu' => $fileName
         ];
@@ -107,18 +112,32 @@ class AdminMenuController extends Controller
     {
         $konten = $this->MenuModel->getDataById($id);
 
-        Request()->validate([
-            'nama_menu' => 'required',
-            'jenis_menu' => 'required',
-            'kategori_menu' => 'required',
-            'harga_menu' => 'required',
-        ]);
+        $jenisMenu = '';
+        if (strtolower(Request()->kategori_menu) == 'coffee')
+        {
+
+            Request()->validate([
+                'nama_menu' => 'required',
+                'jenis_menu' => 'required',
+                'kategori_menu' => 'required',
+                'harga_menu' => 'required',
+            ]);
+            
+            $jenisMenu = strtolower(Request()->jenis_menu);
+        }else
+        {
+            Request()->validate([
+                'nama_menu' => 'required',
+                'kategori_menu' => 'required',
+                'harga_menu' => 'required',
+            ]);
+        }
 
         if (!Request()->gambar_menu) {
             $data = [
-                'nama_menu' => Request()-> nama_menu,
-            'jenis_menu' => Request()-> jenis_menu,
-            'kategori_menu' => Request()-> kategori_menu,
+            'nama_menu' => Request()-> nama_menu,
+            'jenis_menu' => $jenisMenu,
+            'kategori_menu' => strtolower(Request()-> kategori_menu),
             'harga_menu' => Request()-> harga_menu,
             ];
 
@@ -126,9 +145,9 @@ class AdminMenuController extends Controller
         } else {
 
             // delete gambar
-            if ($konten->gbr_menu <> "") {
-                unlink(public_path('template-homepage-cp/gambar/menu/' . $konten->gbr_menu));
-            }
+            // if ($konten->gbr_menu <> "") {
+            //     unlink(public_path('template-homepage-cp/gambar/menu/' . $konten->gbr_menu));
+            // }
 
             // upload gambar
             $file = Request()->gambar_menu;
@@ -137,7 +156,7 @@ class AdminMenuController extends Controller
 
             $data = [
                 'nama_menu' => Request()-> nama_menu,
-                'jenis_menu' => Request()-> jenis_menu,
+                'jenis_menu' => $jenisMenu,
                 'kategori_menu' => Request()-> kategori_menu,
                 'harga_menu' => Request()-> harga_menu,
                 'gbr_menu' => $fileName

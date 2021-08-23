@@ -54,9 +54,9 @@
                             @foreach ($allData as $data)
                                 <tr>
                                     <td class="text-center">{{ $nomor++ }}</td>
-                                    <td class="text-center">{{ $data->nama_menu }}</td>
-                                    <td class="text-center">{{ $data->jenis_menu }}</td>
-                                    <td class="text-center">{{ $data->kategori_menu }}</td>
+                                    <td class="text-center">{{ ucwords($data->nama_menu) }}</td>
+                                    <td class="text-center">{{ ucwords($data->jenis_menu) }}</td>
+                                    <td class="text-center">{{ ucwords($data->kategori_menu) }}</td>
                                     <td class="text-center">Rp{{ number_format($data->harga_menu) }},-</td>
                                     <td class="text-center" width="20%">
                                         <img src="{{ url('template-homepage-cp/gambar/menu/'. $data->gbr_menu ) }}" alt="" style="max-width: 150px">
