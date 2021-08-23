@@ -31,8 +31,8 @@
 }
 
 .tabs label:hover {
-  background: #b68973;
-  color: white;
+    color: #fff;
+    background-color: #5a6268;
 }
 
 .tabs .tab {

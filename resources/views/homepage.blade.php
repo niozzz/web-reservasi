@@ -25,7 +25,7 @@
           <hr class="my-4">
           <p class="lead text2">Mau pagi siang sore atau malem, <span>Fotokopi De Tjolomadoe</span> bakalan ada di setiap pilihan kamu menghabiskan waktu dengan teman, keluarga atau orang spesialmu.</p>
           <div class="tomb">
-            <a class="btn btn-secondary tombol2" href="aboutus.php" role="button">About Us</a>
+            <a class="btn btn-secondary tombol2" href="/about" role="button">About Us</a>
           </div>
 
           <br><br><br><br><br><br>
@@ -72,7 +72,7 @@
 
     <div class="tomb">
       <br>
-      <a class="btn btn-secondary tombol" href="gallery.php" role="button">More in our gallery</a>
+      <a class="btn btn-secondary tombol" href="/gallery" role="button">More in our gallery</a>
     </div>
   </div>
 
@@ -110,7 +110,7 @@
         <p class="bgmenu2">Dan kopi tak pernah memilih siapa yang layak menikmatinya karena dihadapan kopi, kita semua sama. Dalam mengolah sajian menu, tak ada keraguan bagi kami untuk membuat dengan sepenuh hati demi rekan yang telah datang ke dalam kedai</p>
         <br>
         <div class="tomb2">
-          <a class="btn btn-secondary tombol" href="menu.php" role="button">Explore Our Menu</a>
+          <a class="btn btn-secondary tombol" href="/menu" role="button">Explore Our Menu</a>
         </div>
     </div>
   </div>
@@ -129,7 +129,7 @@
            <a class="x"> Jl. Adi Sucipto No.1, Paulan Wetan, Malangjiwan, Kec.Colomadu, Kabupaten Karanganyar, Jawa Tengah 57177</a>
           </p>
           <div class="tomb2">
-            <a class="btn btn-secondary tombol" href="contactus.php" role="button">Contact Us</a>
+            <a class="btn btn-secondary tombol" href="/contact" role="button">Contact Us</a>
           </div>
       </div>
       <div class="col-lg">
@@ -152,7 +152,7 @@
           <p class="bgres2"> Berkumpul, berpikir, dan mengutarakan perasaan. Beberapa cara bisa dilakukan dalam berdiskusi, <br>salah satunya adalah dengan memilih tempat di Fotokopi De Tjolomadoe. <br>Tempat yang santai dengan vibes yang mendukung tentunya!</p>
         <br>
         <div class="tomb">
-          <a class="btn btn-secondary tombol" href="reservation.php" role="button">Reserve Now</a>
+          <a class="btn btn-secondary tombol" href="/reservation" role="button">Reserve Now</a>
         </div>
     </div>
   </div>
