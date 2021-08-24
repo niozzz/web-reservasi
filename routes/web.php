@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\AdminReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,9 @@ use App\Http\Controllers\AdminMenuController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Auth::routes();
+
+Route::get('/', [HomepageController::class, 'index']);
 Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
@@ -63,3 +68,9 @@ Route::post('/administrator/menu/insert', [AdminMenuController::class, 'insert']
 Route::post('/administrator/menu/update/{id}', [AdminMenuController::class, 'update']);
 Route::get('/administrator/menu/hapus/{id}', [AdminMenuController::class, 'delete']);
 Route::get('/administrator/menu/ubah/{id}', [AdminMenuController::class, 'ubah']);
+
+// admin reservation
+Route::get('/administrator/reservation', [AdminReservationController::class, 'index'])->name('AdminReservation');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

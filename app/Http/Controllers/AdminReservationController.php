@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminReservationController extends Controller
 {
-    
-    // percabangan
     public function index()
     {
-        return redirect()->route('Dashboard');
+        return view('reservation-admin/index');
     }
 }
