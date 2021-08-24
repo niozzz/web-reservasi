@@ -10,6 +10,7 @@ class AdminContactController extends Controller
     public function __construct()
     {
         $this-> ContactUsModel = new ContactUsModel();
+        $this->middleware('auth');
     }
 
     public function index()

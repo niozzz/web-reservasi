@@ -4,6 +4,8 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebar-menu">
+                @if (auth()->user()->level == 1)
+                    
                 <li class="nav-devider"></li>
                 <li class="nav-label">Home</li>
                 <li>
@@ -33,7 +35,8 @@
                         </span>
                     </a>
                    
-                </li><li>
+                </li>
+                <li>
                     <a href="/administrator/reservation" aria-expanded="false">
                         <i class="fa fa-calendar-check-o"></i>
                         <span class="hide-menu">Reservation
@@ -41,7 +44,16 @@
                         </span>
                     </a>
                    
-                </li><li>
+                </li>
+                <li>
+                    <a href="/user/reservation" aria-expanded="false">
+                        <i class="fa fa-calendar-check-o"></i>
+                        <span class="hide-menu">Reservation
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
                     <a href="/administrator/about" aria-expanded="false">
                         <i class="fa fa-info"></i>
                         <span class="hide-menu">About Us
@@ -59,6 +71,19 @@
                    
                 </li>
                 <li class="nav-devider"></li>
+                @elseif (auth()->user()->level == 2)
+                <li class="nav-devider"></li>
+                <li class="nav-label">Home</li>
+                <li>
+                    <a href="/user/reservation" aria-expanded="false">
+                        <i class="fa fa-calendar-check-o"></i>
+                        <span class="hide-menu">Reservation
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="nav-devider"></li>
+                @endif
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

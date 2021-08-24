@@ -10,6 +10,7 @@ class AdminMenuController extends Controller
     public function __construct()
     {
         $this-> MenuModel = new MenuModel();
+        $this->middleware('auth');
     }
 
     public function index()

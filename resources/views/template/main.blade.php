@@ -53,7 +53,13 @@
                         
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Admin</a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 
+                                @if (auth()->user()->level==1)
+                                    Admin
+                                @elseif(auth()->user()->level==2)
+                                    {{ auth()->user()->name }}
+                                @endif
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right animated slideInRight">
                                 <ul class="dropdown-user">
                                     <li><a href="#"> Profile</a></li>

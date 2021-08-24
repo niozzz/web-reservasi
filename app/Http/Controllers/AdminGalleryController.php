@@ -10,6 +10,7 @@ class AdminGalleryController extends Controller
     public function __construct()
     {
         $this-> GalleryModel = new GalleryModel();
+        $this->middleware('auth');
     }
 
     public function index()

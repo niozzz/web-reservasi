@@ -10,6 +10,7 @@ class AdminAboutController extends Controller
     public function __construct()
     {
         $this-> AboutUsModel = new AboutUsModel();
+        $this->middleware('auth');
     }
 
     public function index()
