@@ -38,7 +38,7 @@
                         <thead>
                             <tr class="text-center">
                                 <th>#</th>
-                                <th>Nama Acara</th>
+                                <th>Nama Pemesan</th>
                                 <th>Tanggal</th>
                                 <th>Jam</th>
                                 <th>Jumlah Peserta</th>
@@ -183,7 +183,7 @@ $('.tombol-hapus').on('click', function(e){
               },
 
               // menampilkan data dari database
-              events : '/reservation/data',
+              events : '/reservation/data-admin',
 
               // izinkan tabel di klik
               // selectable : true,

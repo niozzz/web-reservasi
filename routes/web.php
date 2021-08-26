@@ -35,7 +35,8 @@ Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/reservation', [ReservationController::class, 'index']);
-Route::get('/reservation/data', [ReservationController::class, 'tampilData']);
+Route::get('/reservation/data-admin', [ReservationController::class, 'tampilDataAdmin']);
+Route::get('/reservation/data-user', [ReservationController::class, 'tampilDataUser']);
 Route::get('/contact', [ContactController::class, 'index'])->name('Contact');
 Route::post('/contact/insert', [ContactController::class, 'insert']);
 

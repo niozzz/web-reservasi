@@ -40,7 +40,7 @@ class AdminReservationController extends Controller
         $judul = '';
         
         Request()->validate([
-            'judul_reservasi' => 'required',
+            'nama_pemesan' => 'required',
             'tanggal_reservasi' => 'required',
             'jam_reservasi' => 'required',
             'jumPeserta_reservasi' => 'required',
@@ -48,7 +48,7 @@ class AdminReservationController extends Controller
         ]);
             
 
-        $judul = '['. Request()->jam_reservasi . '] ' . Request()->judul_reservasi . ' (' . Request()->jumPeserta_reservasi . ')'; 
+        $judul = '['. Request()->jam_reservasi . '] ' . Request()->nama_pemesan . ' (' . Request()->jumPeserta_reservasi . ')'; 
         $data = [
             'title' => $judul,
             'start_event' => Request()-> tanggal_reservasi,

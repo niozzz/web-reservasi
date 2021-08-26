@@ -19,9 +19,9 @@
                                 
                                 
                                 <div class="form-group">
-                                    <label for="judul_reservasi">Judul Reservasi</label>
-                                    <input type="text" id="judul_reservasi" name="judul_reservasi" class="form-control" autofocus value="{{ old('judul_reservasi') }}">
-                                    @error('judul_reservasi') 
+                                    <label for="nama_pemesan">Nama Pemesan</label>
+                                    <input type="text" id="nama_pemesan" name="nama_pemesan" class="form-control" autofocus value="{{ old('nama_pemesan') }}">
+                                    @error('nama_pemesan') 
                                     <label class="text-danger ">
                                         {{$message}}
                                     </label>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jumPeserta_reservasi">Jumlah Peserta</label>
-                                    <input type="text" id="jumPeserta_reservasi" name="jumPeserta_reservasi" class="form-control" autofocus value="{{ old('jumPeserta_reservasi') }}">
+                                    <input type="number" id="jumPeserta_reservasi" name="jumPeserta_reservasi" class="form-control" autofocus value="{{ old('jumPeserta_reservasi') }}">
                                     @error('jumPeserta_reservasi') 
                                     <label class="text-danger ">
                                         {{$message}}

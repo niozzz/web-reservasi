@@ -12,6 +12,8 @@
           <a class="nav-item nav-link {{ request()-> is('gallery') ? 'active' : '' }}" href="/gallery">Gallery</a>
           <a class="nav-item nav-link {{ request()-> is('reservation') ? 'active' : '' }}" href="/reservation">Reservation</a>
           <a class="nav-item nav-link {{ request()-> is('contact') ? 'active' : '' }}" href="/contact">Contact Us</a>
+          <a class="btn btn-secondary tombol2 mt-0" href="/login" role="button">Login</a>
+          {{-- <a class="nav-item nav-link {{ request()-> is('contact') ? 'active' : '' }}" href="/login">Login</a> --}}
         </div>
       </div>  
     </div>

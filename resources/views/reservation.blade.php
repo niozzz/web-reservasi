@@ -72,7 +72,7 @@
                 },
 
                 // menampilkan data dari database
-                events : 'reservation/data',
+                events : 'reservation/data-user',
 
                 // izinkan tabel di klik
                 // selectable : true,
@@ -81,6 +81,7 @@
                 // tambah event
                 
             });
+            calendar.render();
         });
     </script>
 </div>
