@@ -1,8 +1,4 @@
-@php
-    $dataString = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, perferendis tenetur eaque amet neque vitae ratione qui quos a porro esse aspernatur, velit provident quis rem odit inventore dicta nam?";
 
-    // dd($allData);
-@endphp
 
 @extends('template.main')
 
@@ -18,12 +14,13 @@
 @endsection
 
 @section('content')
+
 <div class="row">
     <div class="col-12">
         
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Tabel Reservasi</h4>
+                <h4 class="card-title">Tabel Jadwal Reservasi</h4>
                 <div class="table-responsive ">
                     <div class="dt-buttons">
                         <a
@@ -54,8 +51,7 @@
                             @endphp
 
                             @foreach ($allData as $data)
-                                <tr>
-                                    @php
+                                @php
                                     $dataJudul = explode(' ', $data->title);
 
                                     // dd($dataJudul);
@@ -76,8 +72,11 @@
                                     <td>{{ $jumlahPeserta }}</td>
                                     <td>{{ $data->specific_order }}</td>
                                     <td>{{ $data->status }}</td>
-                                    <td class="text-center">
+                                    {{-- <td style="width: 20%;">
                                         <a href="reservation/hapus/{{ $data->id }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
+                                    </td> --}}
+                                    <td>
+                                        anjat
                                     </td>
                                 </tr>
                             
@@ -103,6 +102,7 @@
         
     </div>
 </div>
+
 {{-- flash data --}}
 <div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
 <!-- End PAge Content -->
@@ -113,8 +113,15 @@
 @section('basic-script')
 {{-- sweet alert 2 --}}
 <script src="{{ asset('template-dashboard') }}/js/sweetalert2/sweetalert2.all.min.js"></script>
+
+{{-- <script src="{{ asset('template-homepage-cp') }}/js/jquery.min.js"></> --}}
+{{-- <script src="{{ asset('template-homepage-cp') }}/js/jquery-ui.min.js"></script> --}}
 <script src="{{ asset('template-homepage-cp') }}/js/moment.min.js"></script>
     <script src="{{ asset('template-homepage-cp') }}/js/fullcalendar.min.js"></script>
+@endsection
+
+@section('new-script')
+    
 <script>
 
 const flashData = $('.flash-data').data('flashdata');
@@ -167,6 +174,7 @@ $('.tombol-hapus').on('click', function(e){
 
 
 </script>
+
 
 <script>
     //jquery

@@ -48,7 +48,7 @@
     <div class="container" >
        <p class="bgmenu2" style="margin-left:25%; margin-right: 25%; text-align: center;">Berikut merupakan daftar tanggal yang sudah terisi penuh dan tidak bisa untuk melakukan reservasi</p>
         <br>
-        <div id="calendar" style="margin-left:25%; margin-right:25%;"></div>
+        <div id="calendar" style="margin-left:15%; margin-right:15%;"></div>
           
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -72,7 +72,7 @@
                 },
 
                 // menampilkan data dari database
-                events : 'tampil.php',
+                events : 'reservation/data',
 
                 // izinkan tabel di klik
                 // selectable : true,

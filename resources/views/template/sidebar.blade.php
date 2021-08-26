@@ -45,14 +45,7 @@
                     </a>
                    
                 </li>
-                <li>
-                    <a href="/user/reservation" aria-expanded="false">
-                        <i class="fa fa-calendar-check-o"></i>
-                        <span class="hide-menu">Reservation
-                        </span>
-                    </a>
-                   
-                </li>
+                
                 <li>
                     <a href="/administrator/about" aria-expanded="false">
                         <i class="fa fa-info"></i>

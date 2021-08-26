@@ -35,6 +35,7 @@ Route::get('/about', [AboutUsController::class, 'index']);
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/reservation', [ReservationController::class, 'index']);
+Route::get('/reservation/data', [ReservationController::class, 'tampilData']);
 Route::get('/contact', [ContactController::class, 'index'])->name('Contact');
 Route::post('/contact/insert', [ContactController::class, 'insert']);
 
@@ -80,6 +81,13 @@ Route::group(['middleware' => 'admin'], function () {
 
     // admin reservation
     Route::get('/administrator/reservation', [AdminReservationController::class, 'index'])->name('AdminReservation');
+    Route::get('/administrator/reservation/tambah', [AdminReservationController::class, 'tambah']);
+    Route::post('/administrator/reservation/insert', [AdminReservationController::class, 'insert']);
+    Route::post('/administrator/reservation/update/{id}', [AdminReservationController::class, 'update']);
+    Route::get('/administrator/reservation/hapus/{id}', [AdminReservationController::class, 'delete']);
+    Route::get('/administrator/reservation/ubah/{id}', [AdminReservationController::class, 'ubah']);
+
+    
 });
 
 Route::group(['middleware' => 'user'], function () {
