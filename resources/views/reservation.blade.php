@@ -1,8 +1,9 @@
-
+@php
+    // dd($settingData);
+@endphp
 <!doctype html>
 <html lang="en">
-  <head>
-    
+  <head>    
     @include('homepage-template.header')
     
  
@@ -91,7 +92,7 @@
        
         <div class="tomb">
     
-      <a class="btn btn-secondary tombol" href="https://api.whatsapp.com/send/?phone=62895359786283&text&app_absent=0" role="button">Reservasi sekarang</a>
+      <a class="btn btn-secondary tombol" target="_blank" href="{{ $settingData->reservasi_link }}" role="button">Reservasi sekarang</a>
     </div>
     <br><br><br>
   <!-- FOOTER -->

@@ -103,6 +103,57 @@
         
     </div>
 </div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>Pengaturan Lain</h4>
+
+            </div>
+            <div class="card-body">
+                <div class="basic-elements">
+                    <form action="/administrator/reservation/update-link" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-5">
+                                
+                                
+                                <div class="form-group">
+                                    <label for="link_reservasi1">Link Reservasi Lama</label>
+                                    <input type="text" id="link_reservasi1" readonly  class="form-control" autofocus value="{{ $settingData->reservasi_link }}">
+                                    
+                                </div>
+                                
+
+                                
+                            
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="link_reservasi2">Link Reservasi Baru</label>
+                                    <input type="text" id="link_reservasi2" name="link_reservasi2" class="form-control" autofocus value="{{ old('link_reservasi2') }}">
+                                    @error('link_reservasi2') 
+                                    <label class="text-danger ">
+                                        {{$message}}
+                                    </label>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <label for="" style="color: white">.</label>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-10 m-l-5">Ubah</button>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {{-- flash data --}}
 <div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
 <!-- End PAge Content -->

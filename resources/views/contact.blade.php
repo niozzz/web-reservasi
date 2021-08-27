@@ -139,11 +139,21 @@ if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || fl
     //     text: 'Data' . flashData
     // })
 
+    if (flashData == "berhasil ditambahkan")
+    {
         Swal.fire({
         icon: 'success',
-        title: 'Berhasil',
-        text: 'Data ' + flashData
+        title: 'Terima kasih!',
+        text: 'Pesan berhasil dikirim'
         })
+    }else
+    {
+        Swal.fire({
+        icon: 'success',
+        title: 'Terima kasih!',
+        text: 'Data' + flashData
+        })
+    }
 
 }
 

@@ -4,21 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
+use App\Models\SettingModel;
 
 class AdminReservationController extends Controller
 {
     public function __construct()
     {
-        $this-> ReservationModel = new ReservationModel();
         $this->middleware('auth');
+        $this-> ReservationModel = new ReservationModel();
+        $this-> SettingModel = new SettingModel();
     }
 
     public function index()
     {
         $allData = $this->ReservationModel->getAllData();
+        $settingData = $this->SettingModel->getAllData();
 
         $data = [
-            'allData' => $allData
+            'allData' => $allData,
+            'settingData' => $settingData,
         ];
         return view('reservation-admin/index', $data);
     }
@@ -69,6 +73,20 @@ class AdminReservationController extends Controller
 
         $this->ReservationModel->hapusData($id);
         return redirect()->route('AdminReservation')->with('pesan', 'berhasil dihapus');
+    }
+
+    public function updateLink()
+    {
+        Request()->validate([
+            'link_reservasi2' => 'required'
+        ]);
+        
+        $data = [
+            'reservasi_link' => Request()-> link_reservasi2
+        ];
+
+        $this->SettingModel->ubahData($data);
+        return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
     }
 
     // public function ubah($id)

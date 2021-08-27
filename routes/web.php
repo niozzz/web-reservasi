@@ -85,6 +85,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/administrator/reservation/tambah', [AdminReservationController::class, 'tambah']);
     Route::post('/administrator/reservation/insert', [AdminReservationController::class, 'insert']);
     Route::post('/administrator/reservation/update/{id}', [AdminReservationController::class, 'update']);
+    Route::post('/administrator/reservation/update-link', [AdminReservationController::class, 'updateLink']);
     Route::get('/administrator/reservation/hapus/{id}', [AdminReservationController::class, 'delete']);
     Route::get('/administrator/reservation/ubah/{id}', [AdminReservationController::class, 'ubah']);
 

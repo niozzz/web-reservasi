@@ -4,22 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MenuModel;
+use App\Models\SettingModel;
 
 class AdminMenuController extends Controller
 {
     public function __construct()
     {
-        $this-> MenuModel = new MenuModel();
         $this->middleware('auth');
+        $this-> MenuModel = new MenuModel();
+        $this-> SettingModel = new SettingModel();
     }
 
     public function index()
     {
 
         $allData = $this->MenuModel->getAllData();
+        $settingData = $this->settingModel->getAllData();
 
         $data = [
-            'allData' => $allData
+            'allData' => $allData,
+            'settingData' => $settingData,
         ];
 
         return view('menu/index', $data);
@@ -47,8 +51,8 @@ class AdminMenuController extends Controller
     public function insert()
     {
         $jenisMenu = '';
-        if (strtolower(Request()->kategori_menu) == 'coffee')
-        {
+        // if (strtolower(Request()->kategori_menu) == 'coffee')
+        // {
 
             Request()->validate([
                 'nama_menu' => 'required',
@@ -59,15 +63,15 @@ class AdminMenuController extends Controller
             ]);
             
             $jenisMenu = Request()->jenis_menu;
-        }else
-        {
-            Request()->validate([
-                'nama_menu' => 'required',
-                'kategori_menu' => 'required',
-                'harga_menu' => 'required',
-                'gambar_menu' => 'required',
-            ]);
-        }
+        // }else
+        // {
+        //     Request()->validate([
+        //         'nama_menu' => 'required',
+        //         'kategori_menu' => 'required',
+        //         'harga_menu' => 'required',
+        //         'gambar_menu' => 'required',
+        //     ]);
+        // }
 
         // upload gambar
         $file = Request()->gambar_menu;
@@ -114,8 +118,8 @@ class AdminMenuController extends Controller
         $konten = $this->MenuModel->getDataById($id);
 
         $jenisMenu = '';
-        if (strtolower(Request()->kategori_menu) == 'coffee')
-        {
+        // if (strtolower(Request()->kategori_menu) == 'coffee')
+        // {
 
             Request()->validate([
                 'nama_menu' => 'required',
@@ -125,19 +129,19 @@ class AdminMenuController extends Controller
             ]);
             
             $jenisMenu = strtolower(Request()->jenis_menu);
-        }else
-        {
-            Request()->validate([
-                'nama_menu' => 'required',
-                'kategori_menu' => 'required',
-                'harga_menu' => 'required',
-            ]);
-        }
+        // }else
+        // {
+        //     Request()->validate([
+        //         'nama_menu' => 'required',
+        //         'kategori_menu' => 'required',
+        //         'harga_menu' => 'required',
+        //     ]);
+        // }
 
         if (!Request()->gambar_menu) {
             $data = [
             'nama_menu' => Request()-> nama_menu,
-            'jenis_menu' => $jenisMenu,
+            'jenis_menu' => strtolower($jenisMenu),
             'kategori_menu' => strtolower(Request()-> kategori_menu),
             'harga_menu' => Request()-> harga_menu,
             ];
@@ -157,7 +161,7 @@ class AdminMenuController extends Controller
 
             $data = [
                 'nama_menu' => Request()-> nama_menu,
-                'jenis_menu' => $jenisMenu,
+                'jenis_menu' => strtolower($jenisMenu),
                 'kategori_menu' => Request()-> kategori_menu,
                 'harga_menu' => Request()-> harga_menu,
                 'gbr_menu' => $fileName

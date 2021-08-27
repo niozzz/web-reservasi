@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
+use App\Models\SettingModel;
 
 class ReservationController extends Controller
 {
@@ -11,11 +12,17 @@ class ReservationController extends Controller
     public function __construct()
     {
         $this-> ReservationModel = new ReservationModel();
+        $this-> SettingModel = new SettingModel();
     }
 
     public function index()
     {
-        return view('reservation');
+        $settingData = $this->SettingModel->getAllData();
+
+        $data = [
+            'settingData' => $settingData,
+        ];
+        return view('reservation', $data);
     }
 
     public function tampilDataAdmin()
