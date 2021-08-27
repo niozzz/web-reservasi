@@ -28,7 +28,7 @@
                                 ?>
                                 
                             </div>
-                            <div class="col-lg-6" style="white-space: pre-line"><?= "<p>". $dataKonten->isi_abt ."</p>"; ?></div>
+                            <div class="col-lg-6" >{!! $dataKonten->isi_abt !!}</div>
                         </div>
                         
                     

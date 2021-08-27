@@ -81,3 +81,21 @@
     <!-- /# column -->
 </div>
 @endsection
+
+@section('basic-script')
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script> --}}
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+@endsection
+
+@section('new-script')
+{{-- <script>
+    ClassicEditor
+        .create( document.querySelector( '#isi_about' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script> --}}
+<script>
+    CKEDITOR.replace( 'isi_about' );
+</script>
+@endsection

@@ -57,28 +57,29 @@
                                 <td class="wordwrap" width="30%">
                                 @php
 
-                                    $arrayString = explode(" ",$data->isi_abt);
+                                    // $arrayString = explode(" ",$data->isi_abt);
 
-                                    if (count($arrayString) >= 5)
-                                    {
+                                    // if (count($arrayString) >= 5)
+                                    // {
 
-                                        $temp = [];
-                                        for ($i=0; $i < 5 ; $i++) { 
-                                            $temp[] = $arrayString[$i];
-                                        }
-                                        $newString = implode(" ", $temp);
-                                        $newString = $newString . "...";
-                                    }else {
-                                        $temp = [];
-                                        for ($i=0; $i < count($arrayString) ; $i++) { 
-                                            $temp[] = $arrayString[$i];
-                                        }
-                                        $newString = implode(" ", $temp);
-                                        $newString = $newString . "...";
-                                    }
+                                    //     $temp = [];
+                                    //     for ($i=0; $i < 5 ; $i++) { 
+                                    //         $temp[] = $arrayString[$i];
+                                    //     }
+                                    //     $newString = implode(" ", $temp);
+                                    //     $newString = $newString . "...";
+                                    // }else {
+                                    //     $temp = [];
+                                    //     for ($i=0; $i < count($arrayString) ; $i++) { 
+                                    //         $temp[] = $arrayString[$i];
+                                    //     }
+                                    //     $newString = implode(" ", $temp);
+                                    //     $newString = $newString . "...";
+                                    // }
 
                                 @endphp
-                                {{ $newString }}
+                                {!!  substr($data->isi_abt, 0, 25) . '...' !!}
+                                {{-- {{ $newString }} --}}
                                 </td>
                                 <td class="text-center" width="20%">
                                     <?php

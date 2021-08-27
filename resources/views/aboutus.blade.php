@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <link href="{{ asset('template-dashboard') }}/css/style.css" rel="stylesheet">
+        {{-- <link href="{{ asset('template-dashboard') }}/css/style.css" rel="stylesheet"> --}}
+        
         @include('homepage-template.header')
     
         {{-- gallery css --}}
@@ -61,7 +62,7 @@
                                                         # code...
                                                         ?>
                                                         
-                                                <div class="col-lg-12" style="white-space: pre-line; text-align : justify; font-size:21px;"><?= "<p> &emsp;&emsp;". $data->isi_abt ."</p>"; ?></div>
+                                                <div class="col-lg-12" style=" text-align : justify; font-size:21px;">{!! $data->isi_abt !!}</div>
                                                     <?php
                                                         }else{
                     
@@ -69,7 +70,7 @@
                                                             <div class="col-lg-6 text-center">
                                                         <img src="{{ url('template-homepage-cp/gambar/aboutus/'. $data->gbr_abt ) }}" alt="" width="100%" class="img-thumbnail">
                                                     </div>
-                                                    <div class="col-lg-6" style="white-space: pre-line; text-align : justify; font-size:21px;"><?= "<p> &emsp;&emsp;". $data->isi_abt ."</p>"; ?></div>
+                                                    <div class="col-lg-6" style=" text-align : justify; font-size:21px;">{!! $data->isi_abt !!}</div>
                                                     <?php
                                                         }
                                                     ?>

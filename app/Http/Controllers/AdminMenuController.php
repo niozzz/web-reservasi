@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MenuModel;
-use App\Models\SettingModel;
+
 
 class AdminMenuController extends Controller
 {
@@ -12,18 +12,18 @@ class AdminMenuController extends Controller
     {
         $this->middleware('auth');
         $this-> MenuModel = new MenuModel();
-        $this-> SettingModel = new SettingModel();
+        
     }
 
     public function index()
     {
 
         $allData = $this->MenuModel->getAllData();
-        $settingData = $this->settingModel->getAllData();
+        
 
         $data = [
             'allData' => $allData,
-            'settingData' => $settingData,
+            
         ];
 
         return view('menu/index', $data);
