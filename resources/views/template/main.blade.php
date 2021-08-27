@@ -12,7 +12,7 @@
     @include('template.header')
     @yield('new-style')
 
-    <title>CoinDash - Cryptocurrency Dashboard Admin Template</title>
+    <title>Dashboard Admin PT. Fotokopi De Tjolomadoe</title>
 </head>
 
 <body class="header-fix fix-sidebar">
