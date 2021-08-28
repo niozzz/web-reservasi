@@ -35,7 +35,11 @@ class ReservationController extends Controller
         $semuaTanggal = [];
         foreach ($allData as $data)
         {
-            $semuaTanggal[] = $data->start_event;
+            if ($data->title)
+            {
+
+                $semuaTanggal[] = $data->start_event;
+            }
         }
         $semuaTanggal = array_unique($semuaTanggal);
 
@@ -52,45 +56,49 @@ class ReservationController extends Controller
             }
         }
 
-
-
+        
 
         // $tanggalPenuh = '';
         $tanggalPenuhTerhapus = [];
         foreach ($allData as $data){
-            if (!in_array($data->start_event, $tanggalPenuh))
+            if ($data->title)
             {
-                if (!in_array($data->start_event, $tanggalPenuhTerhapus))
+                if (!in_array($data->start_event, $tanggalPenuh))
                 {
-
+                    // jika ada tanggal penuh yang sudah dieksekusi, maka tanggal penuh selanjutnya akan dihapus
+                    if (!in_array($data->start_event, $tanggalPenuhTerhapus))
+                    {
+    
+                        $dataJSON[] = [
+                            'id' => $data->id,
+                            'title' => $data->title,
+                            'start' => $data->start_event,
+                            'end' => $data->end_event,
+                            'color' => $data->color,
+                            'max' => $data->max,
+                        ];
+                    }
+                }else
+                {
                     $dataJSON[] = [
                         'id' => $data->id,
-                        'title' => $data->title,
+                        'title' => 'Penuh',
                         'start' => $data->start_event,
                         'end' => $data->end_event,
-                        'color' => $data->color,
-                        'max' => $data->max,
+                        'color' => '#ff9f89',
                     ];
+    
+                    while(in_array($data->start_event, $tanggalPenuh))
+                    {
+                        $tanggalPenuhTerhapus[] = $data->start_event;
+                        $cariIndex = array_search($data->start_event, $tanggalPenuh);
+                        unset($tanggalPenuh[$cariIndex]);
+                    }
+    
+    
                 }
-            }else
-            {
-                $dataJSON[] = [
-                    'id' => $data->id,
-                    'title' => 'Penuh',
-                    'start' => $data->start_event,
-                    'end' => $data->end_event,
-                    'color' => '#ff9f89',
-                ];
-
-                while(in_array($data->start_event, $tanggalPenuh))
-                {
-                    $tanggalPenuhTerhapus[] = $data->start_event;
-                    $cariIndex = array_search($data->start_event, $tanggalPenuh);
-                    unset($tanggalPenuh[$cariIndex]);
-                }
-
-
             }
+            
         }
 
         foreach ($allData as $data){
@@ -98,6 +106,16 @@ class ReservationController extends Controller
             {
 
                 $sisaSlot = $max - $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                $dataJSON[] = [
+                    'id' => $data->id,
+                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                    'start' => $data->start_event,
+                    'end' => $data->end_event,
+                    'color' => '#ffffff',
+                ];
+            }elseif(!$data->title)
+            {
+                $sisaSlot = $this->ReservationModel->getJumlahByTanggal($data->start_event);
                 $dataJSON[] = [
                     'id' => $data->id,
                     'title' => 'Tersisa ' . $sisaSlot . " Slot",
@@ -121,7 +139,11 @@ class ReservationController extends Controller
         $semuaTanggal = [];
         foreach ($allData as $data)
         {
-            $semuaTanggal[] = $data->start_event;
+            if ($data->title)
+            {
+
+                $semuaTanggal[] = $data->start_event;
+            }
         }
         $semuaTanggal = array_unique($semuaTanggal);
 
@@ -190,7 +212,16 @@ class ReservationController extends Controller
                     'start' => $data->start_event,
                     'end' => $data->end_event,
                     'color' => '#ffffff',
-                    'display' => 'background'
+                ];
+            }elseif(!$data->title)
+            {
+                $sisaSlot = $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                $dataJSON[] = [
+                    'id' => $data->id,
+                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                    'start' => $data->start_event,
+                    'end' => $data->end_event,
+                    'color' => '#ffffff',
                 ];
             }
         }

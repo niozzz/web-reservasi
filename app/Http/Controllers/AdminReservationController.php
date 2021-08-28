@@ -112,7 +112,7 @@ class AdminReservationController extends Controller
         ];
 
         $this->ReservationModel->tambahData($data);
-        // }
+        
         return redirect()->route('AdminReservation')->with('pesan', 'berhasil ditambahkan');
     }
 
@@ -135,6 +135,50 @@ class AdminReservationController extends Controller
 
         $this->SettingModel->ubahData($data);
         return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
+    }
+
+    public function updateSlot()
+    {
+
+        $warna = '#67e793';
+        $judul = '';
+
+        Request()->validate([
+            'jumlah_maksimal' => 'required',
+            'tanggal_reservasi' => 'required',
+        ]);
+
+        $dataReservasi = $this->ReservationModel->getDataByTanggal(Request()->tanggal_reservasi);
+
+        // dd($dataReservasi);
+
+        if (count($dataReservasi) ==  0)
+        {
+            $data = [
+                'title' => $judul,
+                'start_event' => Request()-> tanggal_reservasi,
+                'end_event' => Request()-> tanggal_reservasi,
+                'color' => $warna,
+                'specific_order' => '',
+                'status' => '',
+                'max' => Request()->jumlah_maksimal,
+            ];
+
+            $this->ReservationModel->tambahData($data);
+        
+            return redirect()->route('AdminReservation')->with('pesan', 'berhasil ditambahkan');
+        }else
+        {
+
+            $data = [
+                'max' => Request()->jumlah_maksimal
+            ];
+    
+            $this->ReservationModel->ubahMAX_ORANG(Request()-> tanggal_reservasi,$data);
+            return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
+        }
+        
+        
     }
 
     // public function ubah($id)

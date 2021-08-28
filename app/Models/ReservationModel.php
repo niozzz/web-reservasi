@@ -54,11 +54,18 @@ class ReservationModel extends Model
         $jumlah = 0;
         foreach($data as $data)
         {
-            $title = explode(" ", $data->title);
-            $title[2] = str_replace(['(',')'],"", $title[2]);
-            $title[2] = (int) $title[2];
-            // $tampungJumlah[] = $title[2];
-            $jumlah += $title[2];
+            if ($data->title)
+            {
+
+                $title = explode(" ", $data->title);
+                $title[2] = str_replace(['(',')'],"", $title[2]);
+                $title[2] = (int) $title[2];
+                // $tampungJumlah[] = $title[2];
+                $jumlah += $title[2];
+            }else
+            {
+                $jumlah = $data->max;
+            }
         }
 
         return $jumlah;

@@ -54,19 +54,28 @@
                             @endphp
 
                             @foreach ($allData as $data)
+                                @if ($data->title)
+                                    
+                                
                                 <tr>
                                     @php
-                                    $dataJudul = explode(' ', $data->title);
+                                    $judul = '';
+                                    
+                                    // if ($data->title)
+                                    // {
 
-                                    // dd($dataJudul);
-                                    $jam = str_replace(['[',']'],"", $dataJudul[0]);
-                                    $judul = $dataJudul[1];
-                                    $jumlahPeserta = str_replace(['(',')'],"", $dataJudul[2]);
-
-                                    // balik tanggal
-                                    $tanggalReservasi = explode("-", $data->start_event);
-                                    $tanggalReservasi = [$tanggalReservasi[2],$tanggalReservasi[1],$tanggalReservasi[0]];
-                                    $tanggalReservasi = implode("-", $tanggalReservasi);
+                                        $dataJudul = explode(' ', $data->title);
+    
+                                        // dd($dataJudul);
+                                        $jam = str_replace(['[',']'],"", $dataJudul[0]);
+                                        $judul = $dataJudul[1];
+                                        $jumlahPeserta = str_replace(['(',')'],"", $dataJudul[2]);
+    
+                                        // balik tanggal
+                                        $tanggalReservasi = explode("-", $data->start_event);
+                                        $tanggalReservasi = [$tanggalReservasi[2],$tanggalReservasi[1],$tanggalReservasi[0]];
+                                        $tanggalReservasi = implode("-", $tanggalReservasi);
+                                    // }
                                 @endphp
                                 <tr class="text-center">
                                     <td>{{ $nomor++ }}</td>
@@ -80,7 +89,7 @@
                                         <a href="reservation/hapus/{{ $data->id }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                     </td>
                                 </tr>
-                            
+                                @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -108,7 +117,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-title">
-                <h4>Pengaturan Lain</h4>
+                <h4>Pengaturan Link Reservasi</h4>
 
             </div>
             <div class="card-body">
@@ -124,16 +133,63 @@
                                     <input type="text" id="link_reservasi1" readonly  class="form-control"  value="{{ $settingData->reservasi_link }}">
                                     
                                 </div>
-                                
-
-                                
-                            
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="link_reservasi2">Link Reservasi Baru</label>
                                     <input type="text" id="link_reservasi2" name="link_reservasi2" class="form-control"  value="{{ old('link_reservasi2') }}">
                                     @error('link_reservasi2') 
+                                    <label class="text-danger ">
+                                        {{$message}}
+                                    </label>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <label for="" style="color: white">.</label>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-10 m-l-5">Ubah</button>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>Pengaturan Slot Maksimal Reservasi</h4>
+
+            </div>
+            <div class="card-body">
+                <div class="basic-elements">
+                    <form action="/administrator/reservation/update-slot" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-5">
+                                
+                                
+                                <div class="form-group">
+                                    <label for="tanggal_reservasi">Tanggal</label>
+                                    <input type="date" id="tanggal_reservasi" name="tanggal_reservasi"  class="form-control"  value="{{ old('tanggal_reservasi') }}">
+                                    @error('tanggal_reservasi') 
+                                    <label class="text-danger ">
+                                        {{$message}}
+                                    </label>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="jumlah_maksimal">Jumlah Maksimal</label>
+                                    <input type="number" id="jumlah_maksimal" name="jumlah_maksimal" class="form-control"  value="{{ old('jumlah_maksimal',40) }}">
+                                    @error('jumlah_maksimal') 
                                     <label class="text-danger ">
                                         {{$message}}
                                     </label>
