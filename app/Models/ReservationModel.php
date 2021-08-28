@@ -18,6 +18,13 @@ class ReservationModel extends Model
         return DB::table('events')->get();
     }
 
+    public function getAllDataForUser()
+    {
+        return DB::table('events')
+        ->where('status', 'belum disetujui')
+        ->get();
+    }
+
     public function getDataById($id)
     {
         return DB::table('events')

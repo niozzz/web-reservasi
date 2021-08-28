@@ -95,4 +95,10 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'user'], function () {
     // user reservation
     Route::get('/user/reservation', [UserReservationController::class, 'index'])->name('UserReservation');
+    Route::get('/user/reservation/tambah', [UserReservationController::class, 'tambah']);
+    Route::post('/user/reservation/insert', [UserReservationController::class, 'insert']);
+    Route::post('/user/reservation/update/{id}', [UserReservationController::class, 'update']);
+    Route::post('/user/reservation/update-link', [UserReservationController::class, 'updateLink']);
+    Route::get('/user/reservation/hapus/{id}', [UserReservationController::class, 'delete']);
+    Route::get('/user/reservation/ubah/{id}', [UserReservationController::class, 'ubah']);
 });

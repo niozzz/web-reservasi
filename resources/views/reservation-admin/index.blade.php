@@ -121,7 +121,7 @@
                                 
                                 <div class="form-group">
                                     <label for="link_reservasi1">Link Reservasi Lama</label>
-                                    <input type="text" id="link_reservasi1" readonly  class="form-control" autofocus value="{{ $settingData->reservasi_link }}">
+                                    <input type="text" id="link_reservasi1" readonly  class="form-control"  value="{{ $settingData->reservasi_link }}">
                                     
                                 </div>
                                 
@@ -132,7 +132,7 @@
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="link_reservasi2">Link Reservasi Baru</label>
-                                    <input type="text" id="link_reservasi2" name="link_reservasi2" class="form-control" autofocus value="{{ old('link_reservasi2') }}">
+                                    <input type="text" id="link_reservasi2" name="link_reservasi2" class="form-control"  value="{{ old('link_reservasi2') }}">
                                     @error('link_reservasi2') 
                                     <label class="text-danger ">
                                         {{$message}}
@@ -154,6 +154,7 @@
             </div>
         </div>
     </div>
+</div>
 {{-- flash data --}}
 <div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
 <!-- End PAge Content -->
