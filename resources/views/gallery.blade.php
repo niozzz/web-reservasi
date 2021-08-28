@@ -5,9 +5,10 @@
     @include('homepage-template.header')
 
     {{-- gallery css --}}
-    <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet">
-    <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    {{-- <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('template-homepage-cp/hover-gallery') }}/style.css">
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --}}
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
  </head>
@@ -37,51 +38,36 @@
 <br>
 <!-- Galeri -->
 <br><br>
+<div class="container mb-4">
+<div class="wrapper">
+    <div class="row">
+        @foreach ($allData as $data)
+        <div class="col-md-4 text-center justify-content-center mx-auto mb-5">
 
-    <div class="demo-gallery">
-        <ul id="lightgallery" class="list-unstyled row">
+        
+            <div class="media ">
+                <div class="layer">
+                    <p>{{ $data->album_gal }}</p>
+                </div>
 
-            <!-- mulai looping -->
-            @foreach ($allData as $data)
-                
-            <li
-            class="col-md-3"
-            data-src="{{ asset('template-homepage-cp/gambar/gallery/'. $data->gbr_gal) }}"
-            data-sub-html="<h4>{{ $data->album_gal }}</h4>">
-            <a href="">
                 <img
-                    src="{{ asset('template-homepage-cp/gambar/gallery/'. $data->gbr_gal) }}"
-                    class="img-responsive"></a>
-            </li>
-                            
-            @endforeach
-            
-        </ul>
+                src="{{ asset('template-homepage-cp/gambar/gallery/'. $data->gbr_gal) }}"
+                alt="" class=""/>
+            </div>
+        </div>
+        @endforeach
     </div>
+</div>
+</div>
 
-<!-- Akhir Galeri -->
+            
+            
+        
+
+
 
 <!-- FOOTER -->
-<div class="footer-cp">
-  <div class="container textb">
-    
-    <div class="footertext text-white">
-      <div class="follow ">
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="fab fa-instagram text-white" ></a>
-        <a href="https://www.instagram.com/fotokopi.detjolomadoe/" class="ig text-white"> ON INSTAGRAM</a>
-      </div>
-      <div class="garisfooter">
-        <hr class="my-4 fw">
-      </div>
-        <h1 class="f1">FOLLOW US</h1>
-        <p class="f2">Like, share, or follow for more info!</p>
-        
-    </div>
-    
-    <p class="xxx"> ©2021 Fotokopi De Tjolomadoe. All Right Reserved. </p>
-  </div>
-
-</div>
+@include('homepage-template.footer')
 
 <!-- Akhir FOOTER -->
 
@@ -90,7 +76,7 @@
     {{-- @include('homepage-template.basic-script') --}}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script type="text/javascript">
+        {{-- <script type="text/javascript">
         $(document).ready(function() {
             $('#lightgallery').lightGallery();
         });
@@ -102,8 +88,8 @@
     <script src="{{ asset('template-homepage-cp') }}/dist/js/lg-autoplay.js"></script>
     <script src="{{ asset('template-homepage-cp') }}/dist/js/lg-zoom.js"></script>
     <script src="{{ asset('template-homepage-cp') }}/dist/js/lg-hash.js"></script>
-    <script src="{{ asset('template-homepage-cp') }}/dist/js/lg-pager.js"></script>
+    <script src="{{ asset('template-homepage-cp') }}/dist/js/lg-pager.js"></script> --}}
     
-     
+    @include('homepage-template.basic-script')
   </body>
 </html>
