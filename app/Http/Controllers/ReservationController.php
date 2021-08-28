@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
 use App\Models\SettingModel;
+use App\Http\Controllers\AdminReservationController;
 
 class ReservationController extends Controller
 {
@@ -29,6 +30,7 @@ class ReservationController extends Controller
     {
         $dataJSON = [];
         $allData = $this->ReservationModel->getAllData();
+        $max = AdminReservationController::MAX_ORANG;
         
         $semuaTanggal = [];
         foreach ($allData as $data)
@@ -37,7 +39,6 @@ class ReservationController extends Controller
         }
         $semuaTanggal = array_unique($semuaTanggal);
 
-        $max = 40;
         $tanggalPenuh = [];
         $tanggalTidakPenuh = [];
         foreach ($semuaTanggal as $tanggal)
@@ -115,6 +116,7 @@ class ReservationController extends Controller
     {
         $dataJSON = [];
         $allData = $this->ReservationModel->getAllData();
+        $max = AdminReservationController::MAX_ORANG;
         
         $semuaTanggal = [];
         foreach ($allData as $data)
@@ -123,7 +125,6 @@ class ReservationController extends Controller
         }
         $semuaTanggal = array_unique($semuaTanggal);
 
-        $max = 40;
         $tanggalPenuh = [];
         $tanggalTidakPenuh = [];
         foreach ($semuaTanggal as $tanggal)

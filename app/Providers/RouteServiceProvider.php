@@ -20,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
     public const HOME_ADMIN = '/administrator';
     public const HOME_USER = '/user/reservation';
+    public const MAX_PENGUNJUNG = '40';
 
     /**
      * The controller namespace for the application.

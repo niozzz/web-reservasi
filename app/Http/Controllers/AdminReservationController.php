@@ -8,6 +8,8 @@ use App\Models\SettingModel;
 
 class AdminReservationController extends Controller
 {
+    public const MAX_ORANG = 40;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,9 +22,12 @@ class AdminReservationController extends Controller
         $allData = $this->ReservationModel->getAllData();
         $settingData = $this->SettingModel->getAllData();
 
+        
+
         $data = [
             'allData' => $allData,
             'settingData' => $settingData,
+            
         ];
         return view('reservation-admin/index', $data);
     }

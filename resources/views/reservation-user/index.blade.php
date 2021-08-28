@@ -135,8 +135,22 @@ if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || fl
         text: 'Data ' + flashData
         })
 
+}else if (flashData == "tanggal gagal ditambahkan")
+{
+    Swal.fire({
+        icon: 'warning',
+        title: 'Gagal',
+        text: 'Tanggal sudah penuh!'
+        })
 }
-
+else if (flashData == "jumlah tidak valid")
+{
+    Swal.fire({
+        icon: 'warning',
+        title: 'Gagal',
+        text: 'Jumlah peserta melebihi kapasitas!'
+        })
+}
 
 
 
