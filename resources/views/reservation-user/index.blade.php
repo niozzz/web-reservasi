@@ -50,6 +50,9 @@
                             @endphp
 
                             @foreach ($allData as $data)
+                                @if ($data->id_pemesan == Auth::user()->id)
+                                    
+                                
                                 <tr>
                                     @php
                                     $dataJudul = explode(' ', $data->title);
@@ -76,7 +79,7 @@
                                         <a href="reservation/hapus/{{ $data->id }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                     </td>
                                 </tr>
-                            
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

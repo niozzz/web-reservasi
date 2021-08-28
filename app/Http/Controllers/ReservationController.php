@@ -55,18 +55,22 @@ class ReservationController extends Controller
 
 
         // $tanggalPenuh = '';
+        $tanggalPenuhTerhapus = [];
         foreach ($allData as $data){
             if (!in_array($data->start_event, $tanggalPenuh))
             {
+                if (!in_array($data->start_event, $tanggalPenuhTerhapus))
+                {
 
-                $dataJSON[] = [
-                    'id' => $data->id,
-                    'title' => $data->title,
-                    'start' => $data->start_event,
-                    'end' => $data->end_event,
-                    'color' => $data->color,
-                    'max' => $data->max,
-                ];
+                    $dataJSON[] = [
+                        'id' => $data->id,
+                        'title' => $data->title,
+                        'start' => $data->start_event,
+                        'end' => $data->end_event,
+                        'color' => $data->color,
+                        'max' => $data->max,
+                    ];
+                }
             }else
             {
                 $dataJSON[] = [
@@ -76,6 +80,15 @@ class ReservationController extends Controller
                     'end' => $data->end_event,
                     'color' => '#ff9f89',
                 ];
+
+                while(in_array($data->start_event, $tanggalPenuh))
+                {
+                    $tanggalPenuhTerhapus[] = $data->start_event;
+                    $cariIndex = array_search($data->start_event, $tanggalPenuh);
+                    unset($tanggalPenuh[$cariIndex]);
+                }
+
+
             }
         }
 
@@ -128,18 +141,22 @@ class ReservationController extends Controller
 
 
         // $tanggalPenuh = '';
+        $tanggalPenuhTerhapus = [];
         foreach ($allData as $data){
             if (!in_array($data->start_event, $tanggalPenuh))
             {
+                if (!in_array($data->start_event, $tanggalPenuhTerhapus))
+                {
 
-                // $dataJSON[] = [
-                //     'id' => $data->id,
-                //     'title' => $data->title,
-                //     'start' => $data->start_event,
-                //     'end' => $data->end_event,
-                //     'color' => $data->color,
-                //     'max' => $data->max,
-                // ];
+                    // $dataJSON[] = [
+                    //     'id' => $data->id,
+                    //     'title' => $data->title,
+                    //     'start' => $data->start_event,
+                    //     'end' => $data->end_event,
+                    //     'color' => $data->color,
+                    //     'max' => $data->max,
+                    // ];
+                }
             }else
             {
                 $dataJSON[] = [
@@ -149,6 +166,15 @@ class ReservationController extends Controller
                     'end' => $data->end_event,
                     'color' => '#ff9f89',
                 ];
+
+                while(in_array($data->start_event, $tanggalPenuh))
+                {
+                    $tanggalPenuhTerhapus[] = $data->start_event;
+                    $cariIndex = array_search($data->start_event, $tanggalPenuh);
+                    unset($tanggalPenuh[$cariIndex]);
+                }
+
+
             }
         }
 
