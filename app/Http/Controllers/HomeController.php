@@ -10,6 +10,13 @@ class HomeController extends Controller
     // percabangan
     public function index()
     {
-        return redirect()->route('Dashboard');
+        if (auth()->user()->level == 1)
+        {
+            return redirect()->route('Dashboard');
+        }elseif (auth()->user()->level == 2)
+        {
+            return redirect()->route('UserReservation');
+        }
+
     }
 }
