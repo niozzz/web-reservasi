@@ -1,8 +1,4 @@
-@php
-    $dataString = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, perferendis tenetur eaque amet neque vitae ratione qui quos a porro esse aspernatur, velit provident quis rem odit inventore dicta nam?";
 
-    // dd($allData);
-@endphp
 
 @extends('template.main')
 
@@ -55,9 +51,6 @@
 
                             @foreach ($allData as $data)
                                 @if ($data->title)
-                                    
-                                
-                                <tr>
                                     @php
                                     $judul = '';
                                     
@@ -99,6 +92,10 @@
         
     </div>
 </div>
+
+
+
+
 
 <div class="row">
     <div class="col-12">
