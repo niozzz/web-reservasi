@@ -104,7 +104,7 @@ class UserReservationController extends Controller
             'color' => $warna,
             'specific_order' => Request()-> sOrder_reservasi,
             'status' => 'belum disetujui',
-            'max' => 40,
+            'max' => AdminReservationController::MAX_ORANG,
             'id_pemesan' => auth()->user()->id,
         ];
 

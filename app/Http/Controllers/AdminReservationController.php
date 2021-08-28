@@ -17,6 +17,35 @@ class AdminReservationController extends Controller
         $this-> SettingModel = new SettingModel();
     }
 
+    public function tanggalPenuh()
+    {
+        $allData = $this->ReservationModel->getAllDataForUser();
+
+        // mengambil data tanggal penuh
+        $semuaTanggal = [];
+        foreach ($allData as $data)
+        {
+            $semuaTanggal[] = $data->start_event;
+        }
+        $semuaTanggal = array_unique($semuaTanggal);
+
+        $tanggalPenuh = [];
+        $tanggalTidakPenuh = [];
+        foreach ($semuaTanggal as $tanggal)
+        {
+            $selisih = self::MAX_ORANG - $this->ReservationModel->getJumlahByTanggal($tanggal);
+            if ($selisih <= 0)
+            {
+                $tanggalPenuh[] = $tanggal;
+            }else
+            {
+                $tanggalTidakPenuh[] = $tanggal;
+            }
+        }
+
+        return $tanggalPenuh;
+    }
+
     public function index()
     {
         $allData = $this->ReservationModel->getAllData();
@@ -47,6 +76,7 @@ class AdminReservationController extends Controller
     {
         $warna = '#67e793';
         $judul = '';
+        $tanggalPenuh = $this->tanggalPenuh();
         
         Request()->validate([
             'nama_pemesan' => 'required',
@@ -55,6 +85,18 @@ class AdminReservationController extends Controller
             'jumPeserta_reservasi' => 'required',
             'sOrder_reservasi' => 'required',
         ]);
+
+        if (in_array(Request()->tanggal_reservasi, $tanggalPenuh))
+        {
+            return redirect()->route('AdminReservation')->with('pesan', 'tanggal gagal ditambahkan');
+            die;
+        }
+
+        if ($this->ReservationModel->getJumlahByTanggal(Request()->tanggal_reservasi) + Request()->jumPeserta_reservasi > self::MAX_ORANG )
+        {
+            return redirect()->route('AdminReservation')->with('pesan', 'jumlah tidak valid');
+            die;
+        }
             
 
         $judul = '['. Request()->jam_reservasi . '] ' . Request()->nama_pemesan . ' (' . Request()->jumPeserta_reservasi . ')'; 
@@ -64,8 +106,9 @@ class AdminReservationController extends Controller
             'end_event' => Request()-> tanggal_reservasi,
             'color' => $warna,
             'specific_order' => Request()-> sOrder_reservasi,
-            'status' => 'disetujui',
-            'max' => 40,
+            'status' => 'belum disetujui',
+            'max' => self::MAX_ORANG,
+            'id_pemesan' => auth()->user()->id,
         ];
 
         $this->ReservationModel->tambahData($data);

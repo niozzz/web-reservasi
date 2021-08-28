@@ -83,4 +83,11 @@ class ReservationModel extends Model
             ->where('id', $id)
             ->update($data);
     }
+
+    public function ubahMAX_ORANG($tanggal, $data)
+    {
+        DB::table('events')
+            ->where('start_event', $tanggal)
+            ->update($data);
+    }
 }
