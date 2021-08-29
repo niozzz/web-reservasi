@@ -72,7 +72,7 @@
                                 <tr class="text-center">
                                     <td>{{ $nomor++ }}</td>
                                     <td>
-                                    @if ($data->status == 'belum disetujui')
+                                    @if ($data->id_pemesan)
                                     
                                     <button type="button" class="btn btn-success btn-outline m-b-10 m-l-5 btn-block " id="profile{{ $judul .$tanggalReservasi  }}">{{ $judul }}</button>
                                         
@@ -88,6 +88,16 @@
                                     <td>{{ $data->specific_order }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td class="text-center">
+                                        
+                                        @if ($data->status == 'belum disetujui')
+                                        <form action="reservation/confirm" method="POST" style="display:inline">
+                                            @csrf
+                                            <input type="hidden" name="id_event" value="{{ $data->id }}">
+                                            <input type="hidden" name="jumlahPeserta" value="{{ $jumlahPeserta }}">
+                                            <input type="hidden" name="max" value="{{ $data->max }}">
+                                            <button type="submit" class="btn btn-primary btn-sm m-b-10 m-l-5">Setujui</button>
+                                        </form>
+                                        @endif
                                         <a href="reservation/hapus/{{ $data->id }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
                                     </td>
                                 </tr>
@@ -326,7 +336,7 @@ $('.tombol-hapus').on('click', function(e){
 <script>
 
     @foreach ($allData as $data)
-    @if ($data->status == 'belum disetujui')
+    @if ($data->id_pemesan)
     @php
     $dataJudul = explode(' ', $data->title);
     

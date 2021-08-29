@@ -18,6 +18,13 @@ class ReservationModel extends Model
         return DB::table('events')->get();
     }
 
+    public function getAllDataDisetujui()
+    {
+        return DB::table('events')
+        ->where('status','disetujui')
+        ->get();
+    }
+
     public function getAllDataForUser()
     {
         return DB::table('events')
@@ -54,17 +61,21 @@ class ReservationModel extends Model
         $jumlah = 0;
         foreach($data as $data)
         {
-            if ($data->title)
+            if ($data->status == 'disetujui')
             {
 
-                $title = explode(" ", $data->title);
-                $title[2] = str_replace(['(',')'],"", $title[2]);
-                $title[2] = (int) $title[2];
-                // $tampungJumlah[] = $title[2];
-                $jumlah += $title[2];
-            }else
-            {
-                $jumlah = $data->max;
+                if ($data->title)
+                {
+    
+                    $title = explode(" ", $data->title);
+                    $title[2] = str_replace(['(',')'],"", $title[2]);
+                    $title[2] = (int) $title[2];
+                    // $tampungJumlah[] = $title[2];
+                    $jumlah += $title[2];
+                }else
+                {
+                    $jumlah = $data->max;
+                }
             }
         }
 

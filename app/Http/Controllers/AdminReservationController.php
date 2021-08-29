@@ -181,6 +181,28 @@ class AdminReservationController extends Controller
             $this->ReservationModel->ubahMAX_ORANG(Request()-> tanggal_reservasi,$data);
             return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
         }
+
+        
+        
+        
+    }
+
+    public function confirm()
+    {
+        $dataEvent = $this-> ReservationModel -> getDataById(Request()->id_event);
+        $jumlahPeserta = $this->ReservationModel->getJumlahByTanggal($dataEvent->start_event);
+
+        if ($jumlahPeserta + Request()->jumlahPeserta <= Request()->max){
+            $data = [
+                'status' => 'disetujui'
+            ];
+    
+            $this->ReservationModel->ubahData(Request()->id_event, $data);
+            return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
+        }else
+        {
+            return redirect()->route('AdminReservation')->with('pesan', 'tanggal gagal ditambahkan');
+        }
         
         
     }

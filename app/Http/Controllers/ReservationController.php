@@ -29,7 +29,9 @@ class ReservationController extends Controller
     public function tampilDataAdmin()
     {
         $dataJSON = [];
-        $allData = $this->ReservationModel->getAllData();
+        $allData = $this->ReservationModel->getAllDataDisetujui();
+        // dd($allData);
+
         $max = AdminReservationController::MAX_ORANG;
         
         $semuaTanggal = [];

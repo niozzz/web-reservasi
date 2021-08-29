@@ -89,6 +89,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/administrator/reservation/update-link', [AdminReservationController::class, 'updateLink']);
     Route::post('/administrator/reservation/update-slot', [AdminReservationController::class, 'updateSlot']);
     Route::get('/administrator/reservation/hapus/{id}', [AdminReservationController::class, 'delete']);
+    Route::post('/administrator/reservation/confirm', [AdminReservationController::class, 'confirm']);
     Route::get('/administrator/reservation/ubah/{id}', [AdminReservationController::class, 'ubah']);
 
     
