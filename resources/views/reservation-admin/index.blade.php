@@ -323,6 +323,7 @@ $('.tombol-hapus').on('click', function(e){
 
               // menampilkan data dari database
               events : '/reservation/data-admin',
+              
 
               // izinkan tabel di klik
               // selectable : true,
@@ -332,7 +333,10 @@ $('.tombol-hapus').on('click', function(e){
               
           });
       });
+
+      
   </script>
+  
 <script>
 
     @foreach ($allData as $data)

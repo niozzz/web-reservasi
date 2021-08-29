@@ -32,7 +32,9 @@ class ReservationController extends Controller
         $allData = $this->ReservationModel->getAllDataDisetujui();
         // dd($allData);
 
-        $max = AdminReservationController::MAX_ORANG;
+        // $max = AdminReservationController::MAX_ORANG;
+        // dd($this->ReservationModel->getMaxByTanggal('2021-08-17'));
+
         
         $semuaTanggal = [];
         foreach ($allData as $data)
@@ -49,7 +51,7 @@ class ReservationController extends Controller
         $tanggalTidakPenuh = [];
         foreach ($semuaTanggal as $tanggal)
         {
-            if ($this->ReservationModel->getJumlahByTanggal($tanggal) >= $max)
+            if ($this->ReservationModel->getJumlahByTanggal($tanggal) >= $this->ReservationModel->getMaxByTanggal($tanggal))
             {
                 $tanggalPenuh[] = $tanggal;
             }else
@@ -103,24 +105,27 @@ class ReservationController extends Controller
             
         }
 
+        // dd($this->ReservationModel->getJumlahByTanggal('2021-08-17'));
+        // dd($this->ReservationModel->getMaxByTanggal('2021-08-17'));
         foreach ($allData as $data){
             if (in_array($data->start_event, $tanggalTidakPenuh))
             {
 
-                $sisaSlot = $max - $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                $sisaSlot1 = $this->ReservationModel->getMaxByTanggal($data->start_event) - $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                
                 $dataJSON[] = [
                     'id' => $data->id,
-                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                    'title' => 'Tersisa ' . $sisaSlot1 . " Slot",
                     'start' => $data->start_event,
                     'end' => $data->end_event,
                     'color' => '#ffffff',
                 ];
             }elseif(!$data->title)
             {
-                $sisaSlot = $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                $sisaSlot2 = $this->ReservationModel->getJumlahByTanggal($data->start_event);
                 $dataJSON[] = [
                     'id' => $data->id,
-                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                    'title' => 'Tersisa ' . $sisaSlot2 . " Slot",
                     'start' => $data->start_event,
                     'end' => $data->end_event,
                     'color' => '#ffffff',
@@ -136,7 +141,7 @@ class ReservationController extends Controller
     {
         $dataJSON = [];
         $allData = $this->ReservationModel->getAllData();
-        $max = AdminReservationController::MAX_ORANG;
+        // $max = AdminReservationController::MAX_ORANG;
         
         $semuaTanggal = [];
         foreach ($allData as $data)
@@ -153,7 +158,7 @@ class ReservationController extends Controller
         $tanggalTidakPenuh = [];
         foreach ($semuaTanggal as $tanggal)
         {
-            if ($this->ReservationModel->getJumlahByTanggal($tanggal) >= $max)
+            if ($this->ReservationModel->getJumlahByTanggal($tanggal) >= $this->ReservationModel->getMaxByTanggal($tanggal))
             {
                 $tanggalPenuh[] = $tanggal;
             }else
@@ -203,28 +208,33 @@ class ReservationController extends Controller
             }
         }
 
+        // dd($tanggalTidakPenuh);
         foreach ($allData as $data){
-            if (in_array($data->start_event, $tanggalTidakPenuh))
+            if ($data->status == 'disetujui')
             {
 
-                $sisaSlot = $max - $this->ReservationModel->getJumlahByTanggal($data->start_event);
-                $dataJSON[] = [
-                    'id' => $data->id,
-                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
-                    'start' => $data->start_event,
-                    'end' => $data->end_event,
-                    'color' => '#ffffff',
-                ];
-            }elseif(!$data->title)
-            {
-                $sisaSlot = $this->ReservationModel->getJumlahByTanggal($data->start_event);
-                $dataJSON[] = [
-                    'id' => $data->id,
-                    'title' => 'Tersisa ' . $sisaSlot . " Slot",
-                    'start' => $data->start_event,
-                    'end' => $data->end_event,
-                    'color' => '#ffffff',
-                ];
+                if (in_array($data->start_event, $tanggalTidakPenuh))
+                {
+    
+                    $sisaSlot = $this->ReservationModel->getMaxByTanggal($data->start_event) - $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                    $dataJSON[] = [
+                        'id' => $data->id,
+                        'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                        'start' => $data->start_event,
+                        'end' => $data->end_event,
+                        'color' => '#ffffff',
+                    ];
+                }elseif(!$data->title)
+                {
+                    $sisaSlot = $this->ReservationModel->getJumlahByTanggal($data->start_event);
+                    $dataJSON[] = [
+                        'id' => $data->id,
+                        'title' => 'Tersisa ' . $sisaSlot . " Slot",
+                        'start' => $data->start_event,
+                        'end' => $data->end_event,
+                        'color' => '#ffffff',
+                    ];
+                }
             }
         }
 

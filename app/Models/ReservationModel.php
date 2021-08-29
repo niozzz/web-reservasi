@@ -13,6 +13,8 @@ class ReservationModel extends Model
         DB::table('events')->insert($data);
     }
 
+    
+
     public function getAllData()
     {
         return DB::table('events')->get();
@@ -37,6 +39,15 @@ class ReservationModel extends Model
         return DB::table('events')
             ->where('id', $id)
             ->first();
+    }
+
+    public function getMaxByTanggal($tanggal)
+    {
+        $data = DB::table('events')
+            ->select('max')
+            ->where('start_event', $tanggal)
+            ->first();
+        return $data->max;
     }
 
     public function getAllEvent()
