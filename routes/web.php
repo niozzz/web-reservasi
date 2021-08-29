@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminMenuController;
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\UserReservationController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,8 @@ Route::group(['middleware' => 'user'], function () {
     Route::post('/user/reservation/update-link', [UserReservationController::class, 'updateLink']);
     Route::get('/user/reservation/hapus/{id}', [UserReservationController::class, 'delete']);
     Route::get('/user/reservation/ubah/{id}', [UserReservationController::class, 'ubah']);
+
+    // user profile
+    Route::get('/user/profile', [UserProfileController::class, 'index'])->name('UserProfile');
+    Route::post('/user/profile/update', [UserProfileController::class, 'update']);
 });

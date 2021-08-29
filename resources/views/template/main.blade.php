@@ -1,6 +1,11 @@
 @php
     use Illuminate\Support\Facades\Route;
+    // $fullURL = url()->full();
+    // $fullURL = explode('/', $fullURL);
+    // // dd($fullURL);
+    // $linkProfile = $fullURL[2] . '/' . $fullURL[3] . '/profile';
 @endphp
+
 
 
 <!DOCTYPE html>
@@ -53,7 +58,7 @@
                         
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 
+                            <a class="nav-link dropdown-toggle text-muted  " href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 
                                 @if (auth()->user()->level==1)
                                     Admin
                                 @elseif(auth()->user()->level==2)
@@ -62,7 +67,14 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated slideInRight">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"> Profile</a></li>
+                                    
+                                    <li><a href="
+                                        @if (auth()->user()->level==1)
+                                            /administrator/profile
+                                        @elseif(auth()->user()->level==2)
+                                            /user/profile
+                                        @endif
+                                        "> Profile</a></li>
                                     
                                     <li><a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
