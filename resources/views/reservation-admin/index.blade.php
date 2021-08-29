@@ -1,5 +1,4 @@
 
-
 @extends('template.main')
 
 @section('new-style')
@@ -72,7 +71,17 @@
                                 @endphp
                                 <tr class="text-center">
                                     <td>{{ $nomor++ }}</td>
-                                    <td>{{ $judul }}</td>
+                                    <td>
+                                    @if ($data->status == 'belum disetujui')
+                                    
+                                    <button type="button" class="btn btn-success btn-outline m-b-10 m-l-5 btn-block " id="profile{{ $judul .$tanggalReservasi  }}">{{ $judul }}</button>
+                                        
+                                    @else
+                                        {{ $judul }}
+                                    @endif
+                                    
+                                    
+                                    </td>
                                     <td>{{ $tanggalReservasi }}</td>
                                     <td>{{ $jam }}</td>
                                     <td>{{ $jumlahPeserta }}</td>
@@ -213,6 +222,8 @@
 <!-- End PAge Content -->
 
 
+
+
 @endsection
 
 @section('basic-script')
@@ -284,8 +295,6 @@ $('.tombol-hapus').on('click', function(e){
     });
 });
 
-
-
 </script>
 
 <script>
@@ -314,6 +323,58 @@ $('.tombol-hapus').on('click', function(e){
           });
       });
   </script>
+<script>
+
+    @foreach ($allData as $data)
+    @if ($data->status == 'belum disetujui')
+    @php
+    $dataJudul = explode(' ', $data->title);
+    
+    // dd($dataJudul);
+    $jam = str_replace(['[',']'],"", $dataJudul[0]);
+    $judul = $dataJudul[1];
+
+    // balik tanggal
+    $tanggalReservasi = explode("-", $data->start_event);
+    $tanggalReservasi = [$tanggalReservasi[2],$tanggalReservasi[1],$tanggalReservasi[0]];
+    $tanggalReservasi = implode("-", $tanggalReservasi);
+
+    $dataProfile = '';
+
+    // mengambil data profil
+    @endphp
+    @foreach ($allProfile as $profile)
+        @if ($data->id_pemesan == $profile->id)
+            @php
+            $dataProfile = $profile;
+            @endphp
+        @endif
+    @endforeach
+    $('#profile{{ $judul . $tanggalReservasi }}').on('click', function(){
+    Swal.fire({
+    title: '<strong>Profil Pemesan</strong>',
+    icon: 'info',
+    html:
+       ' <div class="col-lg-12" style="text-align:left;"> <div class="card"> <div class="card-body"> <form class="form p-t-20"> <div class="form-group"> <label >Nama</label> <div class="input-group"> <div class="input-group-addon"><i class="ti-user"></i></div> <input type="text" readonly value="{{ $dataProfile->name }}" class="form-control form-type" id="exampleInputuname"> </div> </div> <div class="form-group"> <label for="exampleInputEmail1">Email</label> <div class="input-group"> <div class="input-group-addon"><i class="ti-email"></i></div> <input type="text" readonly value="{{ $dataProfile->email }}" class="form-control form-type" id="exampleInputEmail1"> </div> </div> <div class="form-group"> <label for="exampleInputEmail1">Alamat</label> <div class="input-group"> <div class="input-group-addon"><i class="ti-home"></i></div> <input type="text" readonly value="{{ $dataProfile->address }}" class="form-control form-type" id="exampleInputEmail1"> </div> </div><div class="form-group"> <label for="exampleInputEmail1">No. HP</label> <div class="input-group"> <div class="input-group-addon"><i class="ti-mobile"></i></div> <input type="text" readonly value="{{ $dataProfile->phone }}" class="form-control form-type" id="exampleInputEmail1"> </div> </div></form> </div> </div> </div> '
+
+    ,
+    focusConfirm: false,
+    confirmButtonText:
+        'Close',
+    // confirmButtonColor: '#3085d6',
+    
+    
+    })
+    
+});
+    @endif
+    @endforeach
+</script>
 @endsection
 
 {{-- {{ dd($allData) }} --}}
+{{-- <div class="row">
+    <div class="col-6">
+        nama
+    </div>
+</div> --}}

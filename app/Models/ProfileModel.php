@@ -38,4 +38,5 @@ class ProfileModel extends Model
             ->where('id', $id)
             ->update($data);
     }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
 use App\Models\SettingModel;
+use App\Models\ProfileModel;
 
 class AdminReservationController extends Controller
 {
@@ -15,6 +16,7 @@ class AdminReservationController extends Controller
         $this->middleware('auth');
         $this-> ReservationModel = new ReservationModel();
         $this-> SettingModel = new SettingModel();
+        $this-> ProfileModel = new ProfileModel();
     }
 
     public function tanggalPenuh()
@@ -50,12 +52,14 @@ class AdminReservationController extends Controller
     {
         $allData = $this->ReservationModel->getAllData();
         $settingData = $this->SettingModel->getAllData();
+        $allProfile = $this->ProfileModel->getAllData();
 
-        
+        // dd($allProfile);
 
         $data = [
             'allData' => $allData,
             'settingData' => $settingData,
+            'allProfile' => $allProfile,
             
         ];
         return view('reservation-admin/index', $data);
