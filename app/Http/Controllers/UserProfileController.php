@@ -39,6 +39,7 @@ class UserProfileController extends Controller
         if (Request()->password_profile)
         {
             Request()->validate([
+                'password_confirm' => 'required',
                 'new_password' => 'min:8',
             ]);
 

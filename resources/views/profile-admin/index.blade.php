@@ -87,7 +87,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="ti-lock"></i></div>
-                                <input type="password" class="form-control form-type" id="password_profile" name="password_profile" value="{{ old('password_profile') }}">
+                                <input type="password" class="form-control form-type" id="password_profile" name="password_profile">
                             </div>
                             @error('password_profile') 
                             <label class="text-danger ">

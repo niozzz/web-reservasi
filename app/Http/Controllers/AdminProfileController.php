@@ -38,6 +38,7 @@ class AdminProfileController extends Controller
         if (Request()->password_profile)
         {
             Request()->validate([
+                'password_confirm' => 'required',
                 'new_password' => 'min:8',
             ]);
 
@@ -54,14 +55,14 @@ class AdminProfileController extends Controller
                     ];
     
                     $this->ProfileModel->ubahData(auth()->user()->id,  $data);
-                    return redirect()->route('UserProfile')->with('pesan', 'berhasil diubah');
+                    return redirect()->route('AdminProfile')->with('pesan', 'berhasil diubah');
                 }else{
-                    return redirect()->route('UserProfile')->with('pesan','password konfirmasi tidak cocok');
+                    return redirect()->route('AdminProfile')->with('pesan','password konfirmasi tidak cocok');
                 }
 
             }else
             {
-                return redirect()->route('UserProfile')->with('pesan','password tidak dikenali');
+                return redirect()->route('AdminProfile')->with('pesan','password tidak dikenali');
             }
         }else{
             $data = [
@@ -72,7 +73,7 @@ class AdminProfileController extends Controller
             ];
 
             $this->ProfileModel->ubahData(auth()->user()->id,  $data);
-            return redirect()->route('UserProfile')->with('pesan', 'berhasil diubah');
+            return redirect()->route('AdminProfile')->with('pesan', 'berhasil diubah');
         }
     }
 
