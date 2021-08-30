@@ -17,7 +17,12 @@
     @include('template.header')
     @yield('new-style')
 
-    <title>Dashboard Admin PT. Fotokopi De Tjolomadoe</title>
+    @if (auth()->user()->level==1)
+        <title>Dashboard Admin PT. Fotokopi De Tjolomadoe</title>
+    @elseif(auth()->user()->level==2)
+        <title>Dashboard User PT. Fotokopi De Tjolomadoe</title>                            
+    @endif
+
 </head>
 
 <body class="header-fix fix-sidebar">
