@@ -310,7 +310,7 @@ $('.tombol-hapus').on('click', function(e){
 <script>
     //jquery
     $(document).ready(function(){
-          var calendar = $('#calendar').fullCalendar({
+           $('#calendar').fullCalendar({
               //bisa diedit
               // editable : false,
 

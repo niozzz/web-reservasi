@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\UserReservationController;
 use App\Http\Controllers\UserProfileController;
@@ -92,7 +93,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/administrator/reservation/confirm', [AdminReservationController::class, 'confirm']);
     Route::get('/administrator/reservation/ubah/{id}', [AdminReservationController::class, 'ubah']);
 
-    
+    // admin profile
+    Route::get('/administrator/profile', [AdminProfileController::class, 'index'])->name('AdminProfile');
+    Route::post('/administrator/profile/update', [AdminProfileController::class, 'update']);
 });
 
 Route::group(['middleware' => 'user'], function () {

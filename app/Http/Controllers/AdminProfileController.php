@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\ProfileModel;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
-class UserProfileController extends Controller
+class AdminProfileController extends Controller
 {
     public function __construct()
     {
@@ -23,7 +22,7 @@ class UserProfileController extends Controller
             'allData' => $allData,
             'dataProfile' => $dataProfile,
         ];
-        return view('profile-user/index', $data);
+        return view('profile-admin/index', $data);
     }
 
     public function update()
@@ -76,4 +75,6 @@ class UserProfileController extends Controller
             return redirect()->route('UserProfile')->with('pesan', 'berhasil diubah');
         }
     }
+
+    
 }
