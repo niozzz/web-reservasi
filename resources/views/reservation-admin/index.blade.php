@@ -240,11 +240,11 @@
 {{-- sweet alert 2 --}}
 <script src="{{ asset('template-dashboard') }}/js/sweetalert2/sweetalert2.all.min.js"></script>
 <script src="{{ asset('template-homepage-cp') }}/js/moment.min.js"></script>
-    <script src="{{ asset('template-homepage-cp') }}/js/fullcalendar.min.js"></script>
+<script src="{{ asset('template-homepage-cp') }}/js/fullcalendar.min.js"></script>
 <script>
 
 const flashData = $('.flash-data').data('flashdata');
-console.log(flashData);
+// console.log(flashData);
 
 if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || flashData == "berhasil diubah")
 {

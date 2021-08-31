@@ -64,6 +64,17 @@
                    
                 </li>
                 <li class="nav-devider"></li>
+                <li class="nav-label">Setting</li>
+                <li>
+                    <a href="/administrator/setting/homepage" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                        <span class="hide-menu">Homepage
+                            
+                        </span>
+                    </a>
+                   
+                </li>
+                <li class="nav-devider"></li>
                 @elseif (auth()->user()->level == 2)
                 <li class="nav-devider"></li>
                 <li class="nav-label">Home</li>

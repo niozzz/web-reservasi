@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\UserReservationController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\SettingHomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,10 @@ Route::group(['middleware' => 'admin'], function () {
     // admin profile
     Route::get('/administrator/profile', [AdminProfileController::class, 'index'])->name('AdminProfile');
     Route::post('/administrator/profile/update', [AdminProfileController::class, 'update']);
+
+    // setting homepage
+    Route::get('/administrator/setting/homepage', [SettingHomepageController::class, 'index'])->name('SettingHomepage');
+    Route::get('/administrator/setting/homepage/ubah', [UserReservationController::class, 'ubah']);
 });
 
 Route::group(['middleware' => 'user'], function () {
