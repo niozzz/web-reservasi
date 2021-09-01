@@ -51,14 +51,14 @@ class AdminReservationController extends Controller
     public function index()
     {
         $allData = $this->ReservationModel->getAllData();
-        $settingData = $this->SettingModel->getAllData();
+        $reservasi_link = $this->SettingModel->getDataById('reservasi_link');
         $allProfile = $this->ProfileModel->getAllData();
 
         // dd($allProfile);
 
         $data = [
             'allData' => $allData,
-            'settingData' => $settingData,
+            'reservasi_link' => $reservasi_link,
             'allProfile' => $allProfile,
             
         ];
@@ -134,10 +134,10 @@ class AdminReservationController extends Controller
         ]);
         
         $data = [
-            'reservasi_link' => Request()-> link_reservasi2
+            'teks' => Request()-> link_reservasi2
         ];
 
-        $this->SettingModel->ubahData($data);
+        $this->SettingModel->ubahData('reservasi_link',$data);
         return redirect()->route('AdminReservation')->with('pesan', 'berhasil diubah');
     }
 

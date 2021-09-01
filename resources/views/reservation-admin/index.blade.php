@@ -146,7 +146,7 @@
                                 
                                 <div class="form-group">
                                     <label for="link_reservasi1">Link Reservasi Lama</label>
-                                    <input type="text" id="link_reservasi1" readonly  class="form-control"  value="{{ $settingData->reservasi_link }}">
+                                    <input type="text" id="link_reservasi1" readonly  class="form-control"  value="{{ $reservasi_link->teks }}">
                                     
                                 </div>
                             </div>

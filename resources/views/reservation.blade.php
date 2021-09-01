@@ -92,7 +92,7 @@
        
         <div class="tomb">
     
-      <a class="btn btn-secondary tombol" target="_blank" href="{{ $settingData->reservasi_link }}" role="button">Reservasi sekarang</a>
+      <a class="btn btn-secondary tombol" target="_blank" href="{{ $reservasi_link->teks }}" role="button">Reservasi sekarang</a>
     </div>
     <br><br><br>
   <!-- FOOTER -->

@@ -18,10 +18,9 @@ class ReservationController extends Controller
 
     public function index()
     {
-        $settingData = $this->SettingModel->getAllData();
-
+        $reservasi_link = $this->SettingModel->getDataById('reservasi_link');
         $data = [
-            'settingData' => $settingData,
+            'reservasi_link' => $reservasi_link,
         ];
         return view('reservation', $data);
     }
