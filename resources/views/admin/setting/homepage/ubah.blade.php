@@ -13,7 +13,7 @@
 </div>
 <div class="card-body">
     <div class="basic-elements">
-        <form action="/administrator/setting/homepage/update" method="POST" enctype="multipart/form-data">
+        <form action="/administrator/setting/homepage/update/{{ $settingData->id_setting }}" method="POST" enctype="multipart/form-data">
             @csrf
                                     <div class="row">
                 <div class="col-lg-12">
@@ -21,7 +21,7 @@
                     
                    
                     <div class="form-group">
-                        <textarea class="textarea_editor form-control" rows="15" style="height:250px" id="sOrder_reservasi" name="sOrder_reservasi">{{ $settingData->teks }}</textarea>
+                        <textarea class="textarea_editor form-control" rows="15" style="height:250px" id="teks" name="teks">{{ $settingData->teks }}</textarea>
                                                         </div>
 
                     <div class="form-group">

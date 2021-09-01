@@ -23,6 +23,10 @@
                             $count =1 ;
                         @endphp
                         @foreach ($allData as $data)
+                        @php
+                            $pecahId = explode("_", $data->id_setting);
+                        @endphp
+                        @if ($pecahId[0]== 'home')
                         @if ($count > 0)
                             <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#{{ $data->id_setting }}" role="tab" aria-selected="true"><span class="hidden-xs-down">{{ $data->nama_setting }}</span> </a> </li>
                         @else
@@ -31,7 +35,10 @@
                         
                         @php
                             $count -=1;
+                            // dd(strpos('reservasi_link', 'home'));
                         @endphp
+                        @endif
+                        
                         @endforeach
                         
                     </ul>
@@ -49,7 +56,7 @@
                             <div class="p-20">
                                 <p id="text-{{ $data->id_setting }}">{{ $data->teks }}</p>
                             </div>
-                            <a href="homepage/ubah/{{ $data->id_setting }}" class="btn btn-primary btn-outline m-b-10 m-l-5" >Warning</a>
+                            <a href="homepage/ubah/{{ $data->id_setting }}" class="btn btn-primary btn-outline m-b-10 m-l-5" >Ubah</a>
                         </div>
                             @php
                                 $count -=1;
@@ -95,17 +102,17 @@ if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || fl
 
 }
 
-$('#tombol-ubah').on('click',async function(){
+// $('#tombol-ubah').on('click',async function(){
 
-    Swal.fire({
-    html:
-    '<form action="homepage/update-slogan1" method="POST" enctype="multipart/form-data"> <div class="col-lg-12"> <div class="form-group"> <label for="sOrder_reservasi">Specific Order</label> <textarea class="textarea_editor form-control" rows="15" style="height:250px" id="sOrder_reservasi" name="sOrder_reservasi"></textarea> </div> <div class="form-group"> <button type="submit" class="btn btn-primary btn-flat ">Tambah</button> <a href="/administrator/reservation" class="btn btn-danger btn-flat ">Batal</a> </div> </div>  </form>',
+//     Swal.fire({
+//     html:
+//     '<form action="homepage/update-slogan1" method="POST" enctype="multipart/form-data"> <div class="col-lg-12"> <div class="form-group"> <label for="sOrder_reservasi">Specific Order</label> <textarea class="textarea_editor form-control" rows="15" style="height:250px" id="sOrder_reservasi" name="sOrder_reservasi"></textarea> </div> <div class="form-group"> <button type="submit" class="btn btn-primary btn-flat ">Tambah</button> <a href="/administrator/reservation" class="btn btn-danger btn-flat ">Batal</a> </div> </div>  </form>',
     
     
     
-})
+// })
     
-});
+// });
 
         
     </script>

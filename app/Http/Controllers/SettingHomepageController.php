@@ -40,6 +40,20 @@ class SettingHomepageController extends Controller
         return view('admin.setting.homepage.ubah', $data);
     }
 
+    public function update($id)
+    {
+        Request()->validate([
+            'teks' => 'required'
+        ]);
+        
+        $data = [
+            'teks' => Request()-> teks
+        ];
+
+        $this->SettingModel->ubahData($id,$data);
+        return redirect()->route('SettingHomepage')->with('pesan', 'berhasil diubah');
+    }
+
     // public function updateSlogan1()
     // {
     //     Request()->validate([

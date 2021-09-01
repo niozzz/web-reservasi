@@ -101,6 +101,7 @@ Route::group(['middleware' => 'admin'], function () {
     // setting homepage
     Route::get('/administrator/setting/homepage', [SettingHomepageController::class, 'index'])->name('SettingHomepage');
     Route::get('/administrator/setting/homepage/ubah/{id}', [SettingHomepageController::class, 'ubah']);
+    Route::post('/administrator/setting/homepage/update/{id}', [SettingHomepageController::class, 'update']);
 });
 
 Route::group(['middleware' => 'user'], function () {
