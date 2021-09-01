@@ -18,27 +18,32 @@ class SettingHomepageController extends Controller
     public function index()
     {
         // $allData = $this->SettingHomepageModel->getAllData();
-        $settingData = $this->SettingModel->getAllData();
+        $allData = $this->SettingModel->getAllData();
 
-        // dd($settingData)
+        // dd($allData)
 ;
         $data = [
-            'settingData' => $settingData,
+            'allData' => $allData,
         ];
         return view('admin.setting.homepage.index', $data);
     }
 
-    public function updateSlogan1()
+    public function ubah()
     {
-        Request()->validate([
-            'home_slogan1' => 'required'
-        ]);
-        
-        $data = [
-            'home_slogan1' => Request()-> home_slogan1
-        ];
 
-        $this->SettingModel->ubahData($data);
-        return redirect()->route('SettingHomepage')->with('pesan', 'berhasil diubah');
     }
+
+    // public function updateSlogan1()
+    // {
+    //     Request()->validate([
+    //         'home_slogan1' => 'required'
+    //     ]);
+        
+    //     $data = [
+    //         'home_slogan1' => Request()-> home_slogan1
+    //     ];
+
+    //     $this->SettingModel->ubahData($data);
+    //     return redirect()->route('SettingHomepage')->with('pesan', 'berhasil diubah');
+    // }
 }

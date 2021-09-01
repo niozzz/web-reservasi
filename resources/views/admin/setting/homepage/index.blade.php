@@ -18,46 +18,47 @@
                 <!-- Nav tabs -->
                 <div class="vtabs">
                     <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#slogan1" role="tab" aria-selected="true"><span class="hidden-xs-down">Slogan 1</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#slogan2" role="tab" aria-selected="true"><span class="hidden-xs-down">Slogan 2</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#quote1" role="tab" aria-selected="true"><span class="hidden-xs-down">Quote 1</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#quote2" role="tab" aria-selected="true"><span class="hidden-xs-down">Quote 2</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#quote3" role="tab" aria-selected="true"><span class="hidden-xs-down">Quote 3</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#hour" role="tab" aria-selected="true"><span class="hidden-xs-down">Opening Closed Hour</span> </a> </li>
+
+                        @php
+                            $count =1 ;
+                        @endphp
+                        @foreach ($allData as $data)
+                        @if ($count > 0)
+                            <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#{{ $data->id_setting }}" role="tab" aria-selected="true"><span class="hidden-xs-down">{{ $data->nama_setting }}</span> </a> </li>
+                        @else
+                            <li class="nav-item"> <a class="nav-link show" data-toggle="tab" href="#{{ $data->id_setting }}" role="tab" aria-selected="true"><span class="hidden-xs-down">{{ $data->nama_setting }}</span> </a> </li>
+                        @endif
+                        
+                        @php
+                            $count -=1;
+                        @endphp
+                        @endforeach
+                        
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active show" id="slogan1" role="tabpanel">
+                        @php
+                            $count =1 ;
+                        @endphp
+                        @foreach ($allData as $data)
+                            @if ($count > 0)
+                            <div class="tab-pane active show" id="{{ $data->id_setting }}" role="tabpanel">
+                            @else
+                            <div class="tab-pane show" id="{{ $data->id_setting }}" role="tabpanel">
+                            @endif
                             <div class="p-20">
-                                <p id="text-slogan1">{{ $settingData->home_slogan1 }}</p>
+                                <p id="text-{{ $data->id_setting }}">{{ $data->teks }}</p>
                             </div>
-                            <button type="button" class="btn btn-primary btn-outline m-b-10 m-l-5" id="tombol-ubah">Warning</button>
+                            <a href="homepage/ubah/{{ $data->id_setting }}" class="btn btn-primary btn-outline m-b-10 m-l-5" id="tombol-ubah">Warning</a>
                         </div>
-                        <div class="tab-pane" id="slogan2" role="tabpanel">
-                            <div class="p-20">
-                                <p id="text-slogan2">{{ $settingData->home_slogan2 }}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="quote1" role="tabpanel">
-                            <div class="p-20">
-                                <p id="text-quote1">{{ $settingData->home_quote1 }}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="quote2" role="tabpanel">
-                            <div class="p-20">
-                                <p id="text-quote2">{{ $settingData->home_quote2 }}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="quote3" role="tabpanel">
-                            <div class="p-20">
-                                <p id="text-quote3">{{ $settingData->home_quote3 }}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="hour" role="tabpanel">
-                            <div class="p-20">
-                                <p id="text-hour">{{ $settingData->home_hour }}</p>
-                            </div>
-                        </div>
+                            @php
+                                $count -=1;
+                            @endphp
+                        @endforeach
+                        {{-- @php
+                            dd($count);
+                        @endphp --}}
+                        
                     </div>
                 </div>
             </div>
