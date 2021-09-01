@@ -49,7 +49,7 @@
                             <div class="p-20">
                                 <p id="text-{{ $data->id_setting }}">{{ $data->teks }}</p>
                             </div>
-                            <a href="homepage/ubah/{{ $data->id_setting }}" class="btn btn-primary btn-outline m-b-10 m-l-5" id="tombol-ubah">Warning</a>
+                            <a href="homepage/ubah/{{ $data->id_setting }}" class="btn btn-primary btn-outline m-b-10 m-l-5" >Warning</a>
                         </div>
                             @php
                                 $count -=1;

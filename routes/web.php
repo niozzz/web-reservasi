@@ -100,7 +100,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     // setting homepage
     Route::get('/administrator/setting/homepage', [SettingHomepageController::class, 'index'])->name('SettingHomepage');
-    Route::get('/administrator/setting/homepage/ubah', [UserReservationController::class, 'ubah']);
+    Route::get('/administrator/setting/homepage/ubah/{id}', [SettingHomepageController::class, 'ubah']);
 });
 
 Route::group(['middleware' => 'user'], function () {

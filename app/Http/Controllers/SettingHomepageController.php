@@ -28,9 +28,16 @@ class SettingHomepageController extends Controller
         return view('admin.setting.homepage.index', $data);
     }
 
-    public function ubah()
+    public function ubah($id)
     {
+        $settingData = $this->SettingModel->getDataById($id);
 
+        // dd($settingData)
+;
+        $data = [
+            'settingData' => $settingData,
+        ];
+        return view('admin.setting.homepage.ubah', $data);
     }
 
     // public function updateSlogan1()
