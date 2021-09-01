@@ -21,9 +21,9 @@
           <img src="{{ asset('template-homepage-cp') }}/img/logo.png" class="img-fluid" style=" width: 150px; height: 72px;">
         </div>
       <br>
-          <p class="lead text1">Singgahmu kan Berkesan di Penjuru Kami</p>
+          <p class="lead text1">{{ $home_slogan1->teks }}</p>
           <hr class="my-4">
-          <p class="lead text2">Mau pagi siang sore atau malem, <span>Fotokopi De Tjolomadoe</span> bakalan ada di setiap pilihan kamu menghabiskan waktu dengan teman, keluarga atau orang spesialmu.</p>
+          <p class="lead text2">{{ $home_slogan2->teks }}</p>
           <div class="tomb">
             <a class="btn btn-secondary tombol2" href="/about" role="button">About Us</a>
           </div>
@@ -79,7 +79,7 @@
   <div class="col-lg">
     <br>
     <div class="opentext">
-      <p> "Masih membekas wangi hadirmu, senyum manismu. Tertinggal sesaat dari waktu yang berjalan lambat setelah temu yang teramat singkat."</p>
+      <p>{{ $home_quote1->teks }}</p>
       <a>Rayakan pertemuanmu di <span>Fotokopi De Tjolomadoe</span></a>
     </div>
     <hr class="my-4 garisdoang">
@@ -87,10 +87,10 @@
     <hr class="my-4 gariscoklat">
     <p class="jambuka">
     <br>Monday - saturday
-    <br>12 : 00 till 21 : 00
+    <br>{{ $home_hour1->teks }}
     <br>
     <br>Sunday
-    <br>08 : 00 till 21 : 00
+    <br>{{ $home_hour2->teks }}
     </p>
     
   </div>
@@ -107,7 +107,7 @@
     <br>
     <div class="bgmenufix">
         <h1 class="bgmenu">GREAT COFFEE</h1>
-        <p class="bgmenu2">Dan kopi tak pernah memilih siapa yang layak menikmatinya karena dihadapan kopi, kita semua sama. Dalam mengolah sajian menu, tak ada keraguan bagi kami untuk membuat dengan sepenuh hati demi rekan yang telah datang ke dalam kedai</p>
+        <p class="bgmenu2">{{ $home_quote2->teks }}</p>
         <br>
         <div class="tomb2">
           <a class="btn btn-secondary tombol" href="/menu" role="button">Explore Our Menu</a>
@@ -149,7 +149,7 @@
     <br>
     <div class="bgresfix">
         <h1 class="bgres">RESERVATION</h1>
-          <p class="bgres2"> Berkumpul, berpikir, dan mengutarakan perasaan. Beberapa cara bisa dilakukan dalam berdiskusi, <br>salah satunya adalah dengan memilih tempat di Fotokopi De Tjolomadoe. <br>Tempat yang santai dengan vibes yang mendukung tentunya!</p>
+          <p class="bgres2">{{ $home_quote3->teks }}</p>
         <br>
         <div class="tomb">
           <a class="btn btn-secondary tombol" href="/reservation" role="button">Reserve Now</a>
