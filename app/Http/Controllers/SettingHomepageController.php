@@ -42,13 +42,37 @@ class SettingHomepageController extends Controller
 
     public function update($id)
     {
-        Request()->validate([
-            'teks' => 'required'
-        ]);
-        
-        $data = [
-            'teks' => Request()-> teks
-        ];
+        $data = [];
+        // dd(Request()->hide);
+        if (Request()-> hide == 'YES' || Request()-> hide == NULL)
+        {
+
+            Request()->validate([
+                'teks' => 'required'
+            ]);
+
+            $hide = 'NO';
+            if (Request()-> hide == 'YES')
+            {
+                global $hide;
+                $hide = 'YES';
+            }
+            
+            $data = [
+                'teks' => Request()-> teks,
+                'hide' => $hide,
+            ];
+        }else
+        {
+
+            Request()->validate([
+                'teks' => 'required'
+            ]);
+            
+            $data = [
+                'teks' => Request()-> teks,
+            ];
+        }
 
         $this->SettingModel->ubahData($id,$data);
         return redirect()->route('SettingHomepage')->with('pesan', 'berhasil diubah');

@@ -89,8 +89,11 @@
     <br>Monday - saturday
     <br>{{ $home_hour1->teks }}
     <br>
-    <br>Sunday
+    @if ($home_hour2->hide == 'NO')
+    <br>
+    Sunday
     <br>{{ $home_hour2->teks }}
+    @endif
     </p>
     
   </div>
