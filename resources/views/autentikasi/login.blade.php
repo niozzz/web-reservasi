@@ -1,9 +1,12 @@
 
+@section('title', 'Halaman Login')
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     @include('autentikasi.header')
+    
 </head>
 
 <body class="header-fix fix-sidebar">
@@ -55,6 +58,10 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="text-center">
+
+                            <a class="btn btn-info btn-rounded waves-effect waves-light m-b-40" href="/">Back to home</a>
                         </div>
                     </div>
                 </div>

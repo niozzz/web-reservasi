@@ -5,8 +5,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>CoinDash - Cryptocurrency Dashboard Admin Template</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template-homepage-cp') }}/img/logo-fotokopi.png">
+    <title>@yield('title')</title>
     <!-- Custom CSS -->
     
     <link href="{{ asset('template-dashboard') }}/css/style.css" rel="stylesheet">

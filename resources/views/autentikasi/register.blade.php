@@ -1,4 +1,5 @@
 
+@section('title', 'Halaman Registrasi')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,6 +70,10 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="text-center">
+
+                            <a class="btn btn-info btn-rounded waves-effect waves-light m-b-40" href="/">Back to home</a>
                         </div>
                     </div>
                 </div>
