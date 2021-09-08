@@ -86,13 +86,18 @@
     <p class="display-4 open">OPEN HOURS</p>
     <hr class="my-4 gariscoklat">
     <p class="jambuka">
-    <br>Monday - saturday
-    <br>{{ $home_hour1->teks }}
+    @php
+        $pecahanJadwal = explode ("/", $home_hour1->teks);
+    @endphp
+    <br>{{ $pecahanJadwal[0] }}
+    <br>{{ $pecahanJadwal[1] }}
     <br>
+    @php
+        $pecahanJadwal = explode ("/", $home_hour2->teks);
+    @endphp
     @if ($home_hour2->hide == 'NO')
-    <br>
-    Sunday
-    <br>{{ $home_hour2->teks }}
+    <br>{{ $pecahanJadwal[0] }}
+    <br>{{ $pecahanJadwal[1] }}
     @endif
     </p>
     

@@ -18,7 +18,17 @@
                                     <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <textarea class="textarea_editor form-control" rows="15" style="height:250px" id="teks" name="teks">{{ $settingData->teks }}</textarea>
+                        
+                        <textarea
+                        @if ($settingData->id_setting == 'home_hour1' || $settingData->id_setting == 'home_hour2')
+                            placeholder="example : Sunday / 12:00 till 21:00"
+                        @endif
+                        class="textarea_editor form-control" rows="15" style="height:250px" id="teks" name="teks">{{ $settingData->teks }}</textarea>
+                        @error('teks') 
+                        <label class="text-danger ">
+                            {{$message}}
+                        </label>
+                        @enderror
                     </div>
                     @if ($settingData->id_setting == 'home_hour2')
                         

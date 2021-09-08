@@ -43,6 +43,14 @@ class SettingHomepageController extends Controller
     public function update($id)
     {
         $data = [];
+
+        $pecahanTeks = explode("/", Request()->teks);
+        if (count($pecahanTeks) !== 2)
+        {
+            return redirect()->route('SettingHomepage')->with('pesan', 'tidak berhasil diubah');
+            die;
+        }
+
         // dd(Request()->hide);
         if (Request()-> hide == 'YES' || Request()-> hide == NULL)
         {

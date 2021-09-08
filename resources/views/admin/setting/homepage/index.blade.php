@@ -101,6 +101,14 @@ if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || fl
         })
 
 }
+else if (flashData == "tidak berhasil diubah")
+{
+    Swal.fire({
+        icon: 'warning',
+        title: 'Gagal',
+        text: 'Data ' + flashData
+        })
+}
 
 // $('#tombol-ubah').on('click',async function(){
 
