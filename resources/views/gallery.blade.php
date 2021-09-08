@@ -8,6 +8,9 @@
     {{-- <link href="{{ asset('template-homepage-cp') }}/dist/css/lightgallery.css" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('template-homepage-cp') }}/dist/css/mygallery.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('template-homepage-cp/hover-gallery') }}/style.css">
+    <style>
+      
+    </style>
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --}}
 <!-- Title -->
 <title>Fotokopi De Tjolomadoe-Home</title>
