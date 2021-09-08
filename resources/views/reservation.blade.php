@@ -87,13 +87,33 @@
     </script>
 </div>
 <br>
-<p class="bgmenu2" style="margin-left:25%; margin-right: 25%; text-align: center;">Untuk melakukan reservasi dapat menghubingi langsung kontak dibawah ini</p>
+@if (Auth::user())
 
-       
-        <div class="tomb">
-    
-      <a class="btn btn-secondary tombol" target="_blank" href="{{ $reservasi_link->teks }}" role="button">Reservasi sekarang</a>
-    </div>
+<p
+    class="bgmenu2"
+    style="margin-left:25%; margin-right: 25%; text-align: center;">Anda telah melakukan registrasi, silahkan melakukan reservasi melalui link berikut</p>
+<div class="tomb">
+
+    <a
+        class="btn btn-secondary tombol"
+        target="_blank"
+        href="/user/reservation/tambah"
+        role="button">Reservasi Sekarang</a>
+</div>
+@else
+<p
+    class="bgmenu2"
+    style="margin-left:25%; margin-right: 25%; text-align: center;">Untuk melakukan reservasi, silahkan mendaftarkan akun terlebih dahulu dengan menekan tombol di bawah ini</p>
+<div class="tomb">
+
+    <a
+        class="btn btn-secondary tombol"
+        target="_blank"
+        href="/register"
+        role="button">Registrasi</a>
+</div>
+
+@endif
     <br><br><br>
   <!-- FOOTER -->
   @include('homepage-template.footer')

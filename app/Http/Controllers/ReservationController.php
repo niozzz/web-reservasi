@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ReservationModel;
 use App\Models\SettingModel;
 use App\Http\Controllers\AdminReservationController;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -19,8 +20,16 @@ class ReservationController extends Controller
     public function index()
     {
         $reservasi_link = $this->SettingModel->getDataById('reservasi_link');
+        // $levelUser = 0;
+        // // dd(auth()->user());
+        // if(auth()->user()->level)
+        // {
+        //     global $levelUser;
+        //     $levelUser = Auth::user()->level;
+        // }
         $data = [
             'reservasi_link' => $reservasi_link,
+            // 'levelUser' => $levelUser
         ];
         return view('reservation', $data);
     }
