@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
+use App\Models\MenuModel;
 use App\Http\Controllers\AdminReservationController;
+use DateTime;
 
 class UserReservationController extends Controller
 {
@@ -13,6 +15,7 @@ class UserReservationController extends Controller
     {
         $this->middleware('auth');
         $this-> ReservationModel = new ReservationModel();
+        $this-> MenuModel = new MenuModel();
     }
 
     public function tanggalPenuh()
@@ -46,7 +49,7 @@ class UserReservationController extends Controller
     
     public function index()
     {
-        $allData = $this->ReservationModel->getAllDataForUser();
+        $allData = $this->ReservationModel->getAllData();
 
         
 
@@ -61,12 +64,16 @@ class UserReservationController extends Controller
     public function tambah()
     {
         // $allData = $this->ReservationModel->getAllDataForUser();
-
+        $allData = $this->MenuModel->getAllData();
+        $data = [
+            'allData' => $allData
+        ];
         // $data = [
         //     'allData' => $allData
         // ];
+        
 
-        return view('reservation-user/tambah');
+        return view('reservation-user/tambah', $data);
     }
 
     public function insert()
@@ -79,8 +86,10 @@ class UserReservationController extends Controller
             'nama_pemesan' => 'required',
             'tanggal_reservasi' => 'required',
             'jam_reservasi' => 'required',
+            'jamSelesai_reservasi' => 'required',
             'jumPeserta_reservasi' => 'required',
-            'sOrder_reservasi' => 'required',
+            // 'sOrder_reservasi' => 'required',
+            // 'menu_reservasi' => 'required',
         ]);
 
         if (in_array(Request()->tanggal_reservasi, $tanggalPenuh))
@@ -94,6 +103,13 @@ class UserReservationController extends Controller
             return redirect()->route('UserReservation')->with('pesan', 'jumlah tidak valid');
             die;
         }
+
+        if ((new DateTime(Request()->tanggal_reservasi. " " .Request()->jam_reservasi)) > (new DateTime(Request()->tanggal_reservasi. " " .Request()->jamSelesai_reservasi)))
+        {
+            return redirect()->route('UserReservation')->with('pesan', 'jam tidak valid');
+            die;
+        }
+
             
 
         $judul = '['. Request()->jam_reservasi . '] ' . Request()->nama_pemesan . ' (' . Request()->jumPeserta_reservasi . ')'; 
@@ -101,11 +117,13 @@ class UserReservationController extends Controller
             'title' => $judul,
             'start_event' => Request()-> tanggal_reservasi,
             'end_event' => Request()-> tanggal_reservasi,
+            'jam_selesai' => Request()-> jamSelesai_reservasi,
             'color' => $warna,
             'specific_order' => Request()-> sOrder_reservasi,
             'status' => 'belum disetujui',
             'max' => AdminReservationController::MAX_ORANG,
             'id_pemesan' => auth()->user()->id,
+            'menu' => Request() ->menu_reservasi
         ];
 
         $this->ReservationModel->tambahData($data);

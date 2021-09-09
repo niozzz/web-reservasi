@@ -46,6 +46,7 @@
 
                             @php
                                 $nomor = 1;
+                                $nmodal = 0;
                             @endphp
 
                             @foreach ($allData as $data)
@@ -74,7 +75,7 @@
                                     <td>
                                     @if ($data->id_pemesan)
                                     
-                                    <button type="button" class="btn btn-success btn-outline m-b-10 m-l-5 btn-block " id="profile{{ $judul .$tanggalReservasi  }}">{{ $judul }}</button>
+                                    <button type="button" class="btn btn-success btn-outline m-b-10 m-l-5 btn-block " id="profile{{ $judul .$nmodal  }}">{{ $judul }}</button>
                                         
                                     @else
                                         {{ $judul }}
@@ -102,6 +103,9 @@
                                     </td>
                                 </tr>
                                 @endif
+                                @php
+                                    $nmodal +=1;
+                                @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -276,6 +280,14 @@ else if (flashData == "jumlah tidak valid")
         text: 'Jumlah peserta melebihi kapasitas!'
         })
 }
+else if (flashData == "jam tidak valid")
+{
+    Swal.fire({
+        icon: 'warning',
+        title: 'Gagal',
+        text: 'Jam mulai dan jam selesai tidak valid!'
+        })
+}
 
 
 
@@ -338,7 +350,9 @@ $('.tombol-hapus').on('click', function(e){
   </script>
   
 <script>
-
+    @php
+        $nmodal = 0;
+    @endphp
     @foreach ($allData as $data)
     @if ($data->id_pemesan)
     @php
@@ -364,7 +378,7 @@ $('.tombol-hapus').on('click', function(e){
             @endphp
         @endif
     @endforeach
-    $('#profile{{ $judul . $tanggalReservasi }}').on('click', function(){
+    $('#profile{{ $judul . $nmodal}}').on('click', function(){
     Swal.fire({
     title: '<strong>Profil Pemesan</strong>',
     icon: 'info',
@@ -382,6 +396,9 @@ $('.tombol-hapus').on('click', function(e){
     
 });
     @endif
+    @php
+        $nmodal +=1;
+    @endphp
     @endforeach
 </script>
 @endsection

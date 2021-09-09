@@ -5803,6 +5803,30 @@ tbody tr td:last-child {
     box-shadow: none;
 }
 
+.carousel-caption .style-tabs1 {
+    font-family: viga;
+    color: #b68973;
+    -webkit-text-stroke-width:0.5px;
+    -webkit-text-stroke-color: white;
+  }
+  .carousel-caption .style-tabs2 {
+    font-family: 'Courgette', cursive;
+    color: #b68973;
+  }
+  .carousel-caption .style-tabs3 {
+    font-family: 'Alumni Sans', sans-serif;
+    font-weight: 800;
+    color: white;
+    background-color: black;
+  }
+
+.carousel-item img {
+    width: 100%;
+    max-height: 500px;
+    min-height: 500px;
+    object-fit: cover;
+    }
+
 .login-logo {
     text-align: center;
     margin-bottom: 15px;
