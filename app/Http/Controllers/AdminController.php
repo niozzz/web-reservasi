@@ -47,4 +47,18 @@ class AdminController extends Controller
         $this->MenuModel->ubahKategori(Request()-> nama_kategori1,$data);
         return redirect()->route('Dashboard')->with('pesan', 'berhasil diubah');
     }
+
+    public function ubahMenu()
+    {
+        Request()->validate([
+            'nama_menu2' => 'required'
+        ]);
+        
+        $data = [
+            'jenis_menu' => Request()-> nama_menu2
+        ];
+
+        $this->MenuModel->ubahMenu(Request()-> nama_menu1,$data);
+        return redirect()->route('Dashboard')->with('pesan', 'berhasil diubah');
+    }
 }

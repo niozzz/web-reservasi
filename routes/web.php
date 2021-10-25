@@ -53,6 +53,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/administrator', [AdminController::class, 'index'])->name('Dashboard');
     Route::post('/administrator/ubah-kategori', [AdminController::class, 'ubahKategori']);
+    Route::post('/administrator/ubah-menu', [AdminController::class, 'ubahMenu']);
 
 
     // Admin About
