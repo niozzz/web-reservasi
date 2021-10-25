@@ -57,11 +57,11 @@ $allMenu = array_values($allMenu);
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
-                        <span><i class="ti-vector f-s-40 color-warning"></i></span>
+                        <span><i class="ti-comment-alt f-s-40 color-warning"></i></span>
                     </div>
                     <div class="media-body text-right">
-                        <h4>$27647</h4>
-                        <p class="m-b-0">Total Earnings</p>
+                        <h4>{{ count($allContactData) }}</h4>
+                        <p class="m-b-0">Pesan Masuk</p>
                     </div>
                 </div>
             </div>

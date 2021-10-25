@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MenuModel;
+use App\Models\ContactUsModel;
 
 class AdminController extends Controller
 {
@@ -16,6 +17,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
         $this-> MenuModel = new MenuModel();
+        $this-> ContactUsModel = new ContactUsModel();
     }
 
     /**
@@ -25,10 +27,15 @@ class AdminController extends Controller
      */
     public function index()
     {
+        // menu data
         $allData = $this->MenuModel->getAllData();
+
+        // contact data
+        $allContactData = $this->ContactUsModel->getAllData();
 
         $data = [
             'allData' => $allData,
+            'allContactData' => $allContactData,
 
         ];
         return view('dashboard/admin', $data);
