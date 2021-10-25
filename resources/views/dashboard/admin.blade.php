@@ -1,19 +1,34 @@
+<?php
+
+$allKategori = [];
+foreach ($allData as $data) {
+    $allKategori[] = $data->kategori_menu;
+}
+$allKategori = array_unique($allKategori);
+$allKategori = array_values($allKategori);
+
+// dd($allKategori);
+
+?>
+
 @extends('template.main')
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
+            <a href="#" id="jumlahKategori">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
-                        <span><i class="ti-bag f-s-40 color-primary"></i></span>
+                        <span><i class="ti-menu-alt f-s-40 color-primary"></i></span>
                     </div>
                     <div class="media-body text-right">
-                        <h4>2780</h4>
-                        <p class="m-b-0">New Projects</p>
+                        <h4>{{ count($allKategori) }}</h4>
+                        <p class="m-b-0">Jumlah Kategori</p>
                     </div>
                 </div>
             </div>
+        </a>
         </div>
         <div class="col-md-3">
             <div class="card p-30">
@@ -58,12 +73,15 @@
 
     
 
-    {{-- <div class="row">
+    <div class="row">
         
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-title">
                     <h4>Recent Orders </h4>
+                    
+  
+  
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -128,9 +146,78 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 
 
 </div>
+
+
+<div class="flash-data" data-flashdata="{{ session('pesan') }}"></div>
+@endsection
+
+@section('basic-script')
+<script src="{{ asset('template-dashboard') }}/js/sweetalert2/sweetalert2.all.min.js"></script>
+@endsection
+
+@section('new-script')
+    <script>
+    const flashData = $('.flash-data').data('flashdata');
+    const jumlahKategori = {{ count($allKategori) }};
+    @php
+        $arrayKategori = json_encode($allKategori);
+        echo "var arrayKategori = " . $arrayKategori. "; ";
+
+        
+    @endphp
+    
+    let s1 = '<div class="col-lg-12" style="text-align:left;"> <div class="card" style="height:250px; overflow:scroll; overflow-x:hidden;"> <div class="card-body"> ';
+    let s2 = '';
+    for (i = 0 ; i < jumlahKategori; i++)
+    {
+        s2 += '<form method="POST" action="/administrator/ubah-kategori" class="form"> @csrf <div class="form-group"> <div class="input-group"> <div class="input-group-addon"></div> <input type="hidden" name="nama_kategori1" value="' + arrayKategori[i] +'" class="form-control"><input type="text" name="nama_kategori2" value="' + arrayKategori[i] +'" class="form-control"> <button type="submit" class="btn btn-warning pt-2">Ubah</button> </div> </div></form>';
+    }
+
+    // console.log(s2);
+
+    
+    let s3 = ' </div> </div></div>';
+        $('#jumlahKategori').on('click', function(e){
+            e.preventDefault();
+    Swal.fire({
+    title: '<strong>Daftar Kategori</strong>',
+    
+    
+    
+    html: s1.concat(s2,s3)
+
+    ,
+    focusConfirm: false,
+    confirmButtonText:
+        'Close',
+    // confirmButtonColor: '#3085d6',
+    
+    
+    })
+    
+});
+
+
+if (flashData == "berhasil ditambahkan" || flashData == "berhasil dihapus" || flashData == "berhasil diubah")
+{
+    // Swal.fire({
+    //     icon: 'success',
+    //     title: 'Berhasil!',
+    //     text: 'Data' . flashData
+    // })
+
+        Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: 'Data ' + flashData
+        })
+
+}
+
+    </script>
 @endsection

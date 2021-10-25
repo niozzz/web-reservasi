@@ -3,6 +3,8 @@
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{ asset('template-dashboard') }}/js/lib/bootstrap/js/popper.min.js"></script>
 <script src="{{ asset('template-dashboard') }}/js/lib/bootstrap/js/bootstrap.min.js"></script>
+
+
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="{{ asset('template-dashboard') }}/js/jquery.slimscroll.js"></script>
 <!--Menu sidebar -->

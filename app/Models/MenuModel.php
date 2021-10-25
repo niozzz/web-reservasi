@@ -38,4 +38,11 @@ class MenuModel extends Model
             ->where('id_menu', $id)
             ->update($data);
     }
+
+    public function ubahKategori($kategori1,$kategori2)
+    {
+        DB::table('tb_menu')
+        ->where('kategori_menu', $kategori1)
+        ->update($kategori2);
+    }
 }
