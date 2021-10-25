@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MenuModel;
 use App\Models\ContactUsModel;
+use App\Models\GalleryModel;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,7 @@ class AdminController extends Controller
         $this->middleware('auth');
         $this-> MenuModel = new MenuModel();
         $this-> ContactUsModel = new ContactUsModel();
+        $this-> GalleryModel = new GalleryModel();
     }
 
     /**
@@ -33,9 +35,13 @@ class AdminController extends Controller
         // contact data
         $allContactData = $this->ContactUsModel->getAllData();
 
+        // gallery data
+        $allGalleryData = $this->GalleryModel->getAllData();
+
         $data = [
             'allData' => $allData,
             'allContactData' => $allContactData,
+            'allGalleryData' => $allGalleryData,
 
         ];
         return view('dashboard/admin', $data);

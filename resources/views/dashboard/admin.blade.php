@@ -70,11 +70,11 @@ $allMenu = array_values($allMenu);
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
-                        <span><i class="ti-location-pin f-s-40 color-danger"></i></span>
+                        <span><i class="ti-gallery f-s-40 color-danger"></i></span>
                     </div>
                     <div class="media-body text-right">
-                        <h4>278</h4>
-                        <p class="m-b-0">Total Visitor</p>
+                        <h4>{{ count($allGalleryData) }}</h4>
+                        <p class="m-b-0">Foto Galeri</p>
                     </div>
                 </div>
             </div>
