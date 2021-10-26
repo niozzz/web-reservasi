@@ -46,7 +46,7 @@ $allMenu = array_values($allMenu);
                     </div>
                     <div class="media-body text-right">
                         <h4>{{ count($allMenu) }}</h4>
-                        <p class="m-b-0">Jumlah Menu</p>
+                        <p class="m-b-0">Jenis Menu</p>
                     </div>
                 </div>
             </div>
