@@ -62,6 +62,7 @@
                                 <th>Jam Mulai</th>
                                 <th>Jam Selesai</th>
                                 <th>Jumlah Peserta</th>
+                                <th>Menu</th>
                                 <th>Specific Order</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -71,6 +72,7 @@
 
                             @php
                                 $nomor = 1;
+                                $nmodal = 0;
                             @endphp
 
                             @foreach ($allData as $data)
@@ -98,6 +100,9 @@
                                     <td>{{ $jam }}</td>
                                     <td>{{ $data->jam_selesai }}</td>
                                     <td>{{ $jumlahPeserta }}</td>
+                                    <td><button type="button" class="btn btn-warning btn-sm  btn-block " id="menu{{ $nmodal  }}">Detail</button>
+                                    
+                                    </td>
                                     <td>{{ $data->specific_order }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td class="text-center">
@@ -105,6 +110,9 @@
                                     </td>
                                 </tr>
                                 @endif
+                                @php
+                                    $nmodal +=1;
+                                @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -254,6 +262,35 @@ $('.tombol-hapus').on('click', function(e){
     });
 });
 
+    @php
+        $nmodal = 0;
+    @endphp
+    @foreach ($allData as $data)
+    
+    
+    
+    $('#menu{{  $nmodal}}').on('click', function(){
+    Swal.fire({
+    title: '<strong>Menu yang dipesan</strong>',
+    icon: 'info',
+    html:
+       ' <div class="col-lg-12" style="text-align:left;"> <div class="card"> <div class="card-body"> <form class="form"> <div class="form-group mb-0"> <label>{!! $data->menu !!}</label> </div> </form> </div> </div></div>'
+
+    ,
+    focusConfirm: false,
+    confirmButtonText:
+        'Close',
+    // confirmButtonColor: '#3085d6',
+    
+    
+    })
+    
+});
+    
+    @php
+        $nmodal +=1;
+    @endphp
+    @endforeach
 
 
 </script>

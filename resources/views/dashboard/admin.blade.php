@@ -83,7 +83,7 @@ $allMenu = array_values($allMenu);
 
     
 
-    <div class="row">
+    {{-- <div class="row">
         
         <div class="col-lg-12 col-md-12">
             <div class="card">
@@ -156,7 +156,7 @@ $allMenu = array_values($allMenu);
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

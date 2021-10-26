@@ -424,7 +424,7 @@ $('.tombol-hapus').on('click', function(e){
     title: '<strong>Menu yang dipesan</strong>',
     icon: 'info',
     html:
-       ' <div class="col-lg-12" style="text-align:left;"> <div class="card"> <div class="card-body"> <form class="form p-t-20"> <div class="form-group"> <label>{!! $data->menu !!}</label> </div> </form> </div> </div></div>'
+       ' <div class="col-lg-12" style="text-align:left;"> <div class="card"> <div class="card-body"> <form class="form "> <div class="form-group mb-0"> <label>{!! $data->menu !!}</label> </div> </form> </div> </div></div>'
 
     ,
     focusConfirm: false,
