@@ -92,6 +92,7 @@ class AdminReservationController extends Controller
             'jamSelesai_reservasi' => 'required',
             'jumPeserta_reservasi' => 'required',
             // 'sOrder_reservasi' => 'required',
+            'menu_reservasi' => 'required',
         ]);
 
         if (in_array(Request()->tanggal_reservasi, $tanggalPenuh))

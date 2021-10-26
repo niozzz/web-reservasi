@@ -82,6 +82,7 @@ class UserReservationController extends Controller
         $judul = '';
         $tanggalPenuh = $this->tanggalPenuh();
         
+        
         Request()->validate([
             'nama_pemesan' => 'required',
             'tanggal_reservasi' => 'required',
@@ -89,7 +90,7 @@ class UserReservationController extends Controller
             'jamSelesai_reservasi' => 'required',
             'jumPeserta_reservasi' => 'required',
             // 'sOrder_reservasi' => 'required',
-            // 'menu_reservasi' => 'required',
+            'menu_reservasi' => 'required',
         ]);
 
         if (in_array(Request()->tanggal_reservasi, $tanggalPenuh))
@@ -113,6 +114,9 @@ class UserReservationController extends Controller
             
 
         $judul = '['. Request()->jam_reservasi . '] ' . Request()->nama_pemesan . ' (' . Request()->jumPeserta_reservasi . ')'; 
+        $teksMenu =  nl2br(Request() ->menu_reservasi);
+        $teksMenu =  trim($teksMenu);
+        $teksMenu = preg_replace('/\r\n|\r|\n\r|\n/m', ' ', $teksMenu);
         $data = [
             'title' => $judul,
             'start_event' => Request()-> tanggal_reservasi,
@@ -123,7 +127,7 @@ class UserReservationController extends Controller
             'status' => 'belum disetujui',
             'max' => AdminReservationController::MAX_ORANG,
             'id_pemesan' => auth()->user()->id,
-            'menu' => Request() ->menu_reservasi
+            'menu' => $teksMenu,
         ];
 
         $this->ReservationModel->tambahData($data);

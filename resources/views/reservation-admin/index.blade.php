@@ -1,4 +1,6 @@
-
+@php
+// dd($allData);    
+@endphp
 @extends('template.main')
 
 @section('new-style')
@@ -35,8 +37,10 @@
                                 <th>#</th>
                                 <th>Nama Pemesan</th>
                                 <th>Tanggal</th>
-                                <th>Jam</th>
-                                <th>Jumlah Peserta</th>
+                                <th>Mulai</th>
+                                <th>Selesai</th>
+                                <th >Jumlah Peserta</th>
+                                <th>Menu</th>
                                 <th>Specific Order</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -85,7 +89,11 @@
                                     </td>
                                     <td>{{ $tanggalReservasi }}</td>
                                     <td>{{ $jam }}</td>
-                                    <td>{{ $jumlahPeserta }}</td>
+                                    <td>{{ $data->jam_selesai }}</td>
+                                    <td >{{ $jumlahPeserta }}</td>
+                                    <td><button type="button" class="btn btn-warning btn-sm  btn-block " id="menu{{ $nmodal  }}">Detail</button>
+                                    
+                                    </td>
                                     <td>{{ $data->specific_order }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td class="text-center">
@@ -96,7 +104,7 @@
                                             <input type="hidden" name="id_event" value="{{ $data->id }}">
                                             <input type="hidden" name="jumlahPeserta" value="{{ $jumlahPeserta }}">
                                             <input type="hidden" name="max" value="{{ $data->max }}">
-                                            <button type="submit" class="btn btn-primary btn-sm m-b-10 m-l-5">Setujui</button>
+                                            <button type="submit" class="btn btn-primary btn-sm m-b-10 m-l-5">Setujui</button><br>
                                         </form>
                                         @endif
                                         <a href="reservation/hapus/{{ $data->id }}" class="btn btn-danger btn-sm m-b-10 m-l-5 tombol-hapus">Hapus</a>
@@ -396,6 +404,39 @@ $('.tombol-hapus').on('click', function(e){
     
 });
     @endif
+    @php
+        $nmodal +=1;
+    @endphp
+    @endforeach
+
+
+    
+
+    @php
+        $nmodal = 0;
+    @endphp
+    @foreach ($allData as $data)
+    
+    
+    
+    $('#menu{{  $nmodal}}').on('click', function(){
+    Swal.fire({
+    title: '<strong>Menu yang dipesan</strong>',
+    icon: 'info',
+    html:
+       ' <div class="col-lg-12" style="text-align:left;"> <div class="card"> <div class="card-body"> <form class="form p-t-20"> <div class="form-group"> <label>{!! $data->menu !!}</label> </div> </form> </div> </div></div>'
+
+    ,
+    focusConfirm: false,
+    confirmButtonText:
+        'Close',
+    // confirmButtonColor: '#3085d6',
+    
+    
+    })
+    
+});
+    
     @php
         $nmodal +=1;
     @endphp

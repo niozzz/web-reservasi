@@ -32,7 +32,7 @@ class UserProfileController extends Controller
             'name_profile' => 'required',
             'email_profile' => 'required',
             'address_profile' => 'required',
-            'phone_profile' => 'required|min:11|max:13',
+            'phone_profile' => 'required|min:11|max:13|unique:users,phone,'.Request()-> phone_profile,
             
         ]);
 
