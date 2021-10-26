@@ -76,7 +76,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="menu_reservasi">Menu</label>
-                                    <textarea class="textarea_editor form-control" rows="15"  style="height:250px" id="menu_reservasi" name="menu_reservasi">{{ old('menu_reservasi') }}</textarea>
+                                    <textarea class="textarea_editor form-control" rows="15"  style="height:250px" id="menu_reservasi" name="menu_reservasi" placeholder="Contoh : 
+Latte 1
+Ayam mentega 2
+French Fries 1">{{ old('menu_reservasi') }}</textarea>
                                     @error('menu_reservasi') 
                                     <label class="text-danger ">
                                         {{$message}}
@@ -85,7 +88,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sOrder_reservasi">Keterangan tambahan/bisa tidak diisi</label>
-                                    <textarea class="textarea_editor form-control" rows="15"  style="height:250px" id="sOrder_reservasi" name="sOrder_reservasi" placeholder="contoh = ingin di smoking room">{{ old('sOrder_reservasi') }}</textarea>
+                                    <textarea class="textarea_editor form-control" rows="15"  style="height:250px" id="sOrder_reservasi" name="sOrder_reservasi" placeholder="Contoh : ingin di smoking room">{{ old('sOrder_reservasi') }}</textarea>
                                     @error('sOrder_reservasi') 
                                     <label class="text-danger ">
                                         {{$message}}
