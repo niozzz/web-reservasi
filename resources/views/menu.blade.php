@@ -51,7 +51,7 @@
 
 <div class="container" style="margin-top: 60px; margin-bottom:60px;">
   <div class="tabs">
-    <h4 style="padding-top:2px; padding-bottom:2px;">Our Best Seller : &nbsp;</h4>
+    <h4 style="padding-top:2px; padding-bottom:2px;">Menu Category  : &nbsp;</h4>
 
     {{-- looping 1 --}}
     
