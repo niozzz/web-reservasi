@@ -1,3 +1,18 @@
+@php
+    $allKategori = [];
+    foreach ($allData as $data) {
+      $allKategori[] = $data->kategori_menu;
+    }
+    $allKategori = array_unique($allKategori);
+    $allKategori = array_values($allKategori);
+
+    $allJenis = [];
+    foreach ($allData as $data) {
+      $allJenis[] = $data->jenis_menu;
+    }
+    $allJenis = array_unique($allJenis);
+    $allJenis = array_values($allJenis);
+@endphp
 @extends('template.main')
 
 @section('content')
@@ -95,4 +110,43 @@
     
     <!-- /# column -->
 </div>
+@endsection
+
+@section('basic-script')
+<script src="{{ asset('template-dashboard/js') }}/jquery.autocomplete.min.js"></script>
+@endsection
+
+@section('new-script')
+    <script>
+        $(document).ready(function() {
+
+// Data yang ditamilkan pada autocomplete.
+var jenis = [
+    @for ($i = 0; $i < count($allJenis) ; $i++)
+        {value : '{{ $allJenis[$i] }}', data : '{{ $allJenis[$i] }}' },
+    @endfor
+    
+    
+];
+
+// Selector input yang akan menampilkan autocomplete.
+$( "#jenis_menu" ).autocomplete({
+    lookup: jenis
+});
+
+// Data yang ditamilkan pada autocomplete.
+var kategori = [
+    @for ($i = 0; $i < count($allKategori) ; $i++)
+        {value : '{{ $allKategori[$i] }}', data : '{{ $allKategori[$i] }}' },
+    @endfor
+    
+    
+];
+
+// Selector input yang akan menampilkan autocomplete.
+$( "#kategori_menu" ).autocomplete({
+    lookup: kategori
+});
+})
+    </script>
 @endsection

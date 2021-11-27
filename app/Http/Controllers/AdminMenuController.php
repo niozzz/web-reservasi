@@ -106,9 +106,13 @@ class AdminMenuController extends Controller
 
     public function ubah($id)
     {
+        $allData = $this->MenuModel->getAllData();
+
         $data = [
-            'dataKonten' => $this->MenuModel->getDataById($id)
+            'dataKonten' => $this->MenuModel->getDataById($id),
+            'allData' => $allData
         ];
+        
 
         return view('menu/ubah', $data);
     }
