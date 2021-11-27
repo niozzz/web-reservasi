@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ReservationModel;
 use App\Models\MenuModel;
+use App\Models\SettingModel;
 use App\Http\Controllers\AdminReservationController;
 use DateTime;
 
@@ -16,6 +17,7 @@ class UserReservationController extends Controller
         $this->middleware('auth');
         $this-> ReservationModel = new ReservationModel();
         $this-> MenuModel = new MenuModel();
+        $this-> SettingModel = new SettingModel();
     }
 
     public function tanggalPenuh()
@@ -50,13 +52,14 @@ class UserReservationController extends Controller
     public function index()
     {
         $allData = $this->ReservationModel->getAllData();
-
+        $reservasi_link = $this->SettingModel->getDataById('reservasi_link');
         
 
         // dd($tanggalPenuh);
 
         $data = [
             'allData' => $allData,
+            'reservasi_link' => $reservasi_link,
         ];
         return view('reservation-user/index', $data);
     }

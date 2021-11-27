@@ -66,7 +66,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="jumPeserta_reservasi">Jumlah Peserta</label>
+                                    <label for="jumPeserta_reservasi" style="margin-bottom: 0px;">Jumlah Peserta</label>
+                                    <h6 class="card-subtitle mt-0">Jika peserta lebih dari 40, isikan jumlah peserta dengan 40 dan tambahkan keterangan mengenai jumlah peserta pada kolom <a href="#sOrder_reservasi"> <span class="text-danger"><b>keterangan tambahan</b></span></a>  di bawah.</h6>
                                     <input type="number" id="jumPeserta_reservasi" name="jumPeserta_reservasi" class="form-control" autofocus value="{{ old('jumPeserta_reservasi') }}">
                                     @error('jumPeserta_reservasi') 
                                     <label class="text-danger ">
@@ -75,7 +76,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="menu_reservasi">Menu</label>
+                                    <label for="menu_reservasi " >Menu</label>
+                                    
                                     <textarea class="textarea_editor form-control" rows="15"  style="height:250px" id="menu_reservasi" name="menu_reservasi" placeholder="Contoh : 
 Latte 1
 Ayam mentega 2
@@ -185,6 +187,7 @@ French Fries 1">{{ old('menu_reservasi') }}</textarea>
                     </form>
                 </div>
             </div>
+            <a href="/menu" target="_blank" class="btn btn-warning btn-block m-b-10">Lihat Menu Lengkap</a>
         </div>
     </div>
     

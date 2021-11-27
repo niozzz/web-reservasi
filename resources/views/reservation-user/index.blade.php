@@ -134,7 +134,7 @@
                     <a
                         class="btn btn-success buttons-copy buttons-html5"
                         tabindex="0"
-                        href="https://api.whatsapp.com/send/?phone=6282169749941&text=Lengkapi%20data%20berikut%20!%0AEmail%20yang%20terdaftar%20pada%20web%20fotokopi%20de%20Tjolomadoe%20:%0A(Kirim%20pesan%20ini%20untuk%20melakukan%20pembayaran,%20admin%20akan%20mengirimkan%20total%20biaya%20yang%20perlu%20dibayarkan.%0AJika%20ada%20pertanyaan%20silahkan%20tanyakan%20setelah%20mengirimkan%20pesan%20ini)"
+                        href="{{ $reservasi_link->teks }}"
                         target="_blank"
                         >
                         <span>Pembayaran</span>

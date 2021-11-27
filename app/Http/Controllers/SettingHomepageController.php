@@ -43,9 +43,13 @@ class SettingHomepageController extends Controller
     public function update($id)
     {
         $data = [];
+        
+        $settingData = $this->SettingModel->getDataById($id);
+        // dd($settingData->id_setting);
+
 
         $pecahanTeks = explode("/", Request()->teks);
-        if (count($pecahanTeks) !== 2)
+        if (count($pecahanTeks) !== 2 && (($settingData->id_setting == "home_hour1") || ($settingData->id_setting == "home_hour1")))
         {
             return redirect()->route('SettingHomepage')->with('pesan', 'tidak berhasil diubah');
             die;
